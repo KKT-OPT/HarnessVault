@@ -1,0 +1,33 @@
+# IDE / editor local state
+.idea/
+*.iml
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Obsidian volatile workspace state
+harness/.obsidian/workspace.json
+harness/.obsidian/workspace-mobile.json
+harness/.obsidian/workspaces.json
+
+# Obsidian community plugin runtime code
+# Keep plugin manifests/config when intentionally committed; reinstall plugin code via Obsidian.
+harness/.obsidian/plugins/**/main.js
+harness/.obsidian/plugins/**/styles.css
+harness/.obsidian/plugins/**/obsidian_askpass.sh
+
+# Local generated / temporary files
+*.tmp
+*.bak
+*.log
+
+# Generated governance artifacts can be committed selectively.
+harness/docs/reports/**/*.json
+harness/docs/reports/**/*.html
+
+# JetBrains defaults sometimes created inside project root
+/shelf/
+/workspace.xml
+/httpRequests/
