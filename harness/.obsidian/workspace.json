@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "3291e254fc5a9838",
+        "id": "bfdaa593a38c161c",
         "type": "tabs",
         "children": [
           {
-            "id": "53fcc54fb073d2ec",
+            "id": "555cb8bbdeea9162",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/HarnessEngineering.md",
+                "file": "templates/GovernancePolicyTemplate.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "HarnessEngineering"
+              "title": "GovernancePolicyTemplate"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/HarnessEngineering.md",
+                "file": "templates/GovernancePolicyTemplate.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "HarnessEngineering 的大纲"
+              "title": "GovernancePolicyTemplate 的大纲"
             }
           }
         ],
@@ -187,9 +187,17 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "53fcc54fb073d2ec",
+  "active": "555cb8bbdeea9162",
   "lastOpenFiles": [
+    "templates/WorkflowTemplate.md",
+    "templates/SkillTemplate.md",
+    "templates/ReportTemplate.md",
+    "CleanupPolicy.md",
+    "docs/PLANS.md",
+    "docs/INDEX.md",
+    "docs/Dashboard.md",
     "docs/HarnessEngineering.md",
+    "未命名.md",
     "HarnessEngineering_v1.1.0.md",
     "docs/HarnessEngineering_v1.1.0.md",
     "docs",
