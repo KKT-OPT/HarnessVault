@@ -1,6 +1,19 @@
-# IDE / editor local state
-.idea/
-*.iml
+# IntelliJ IDEA / JetBrains
+# Keep shared project files when needed:
+# - .idea/vcs.xml
+# - .idea/modules.xml
+# - .idea/*.iml
+#
+# Ignore only user-local volatile state.
+.idea/workspace.xml
+.idea/workspace.xml.*
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/shelf/
+.idea/httpRequests/
+*.iws
+
+# VS Code
 .vscode/
 
 # OS files
@@ -13,7 +26,7 @@ harness/.obsidian/workspace-mobile.json
 harness/.obsidian/workspaces.json
 
 # Obsidian community plugin runtime code
-# Keep plugin manifests/config when intentionally committed; reinstall plugin code via Obsidian.
+# Keep plugin manifests/config when intentionally committed; reinstall plugin code locally via Obsidian.
 harness/.obsidian/plugins/**/main.js
 harness/.obsidian/plugins/**/styles.css
 harness/.obsidian/plugins/**/obsidian_askpass.sh
@@ -26,8 +39,3 @@ harness/.obsidian/plugins/**/obsidian_askpass.sh
 # Generated governance artifacts can be committed selectively.
 harness/docs/reports/**/*.json
 harness/docs/reports/**/*.html
-
-# JetBrains defaults sometimes created inside project root
-/shelf/
-/workspace.xml
-/httpRequests/

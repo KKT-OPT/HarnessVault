@@ -92,13 +92,19 @@ reviewAfter: 2026-06-29 00:00:00.000 +08:00
 - project-template/git/
 - project-template/workflow/
 
-## 8. Obsidian 辅助视图
+## 8. Obsidian 配置
+
+| 文档 | 状态 | 用途 |
+|---|---|---|
+| [[ObsidianSetup]] | draft | 说明 Obsidian vault root、插件配置、Templater 使用方式和 Git 维护边界 |
+
+## 9. Obsidian 辅助视图
 
 | 文档 | 用途 |
 |---|---|
 | [[Dashboard]] | 使用 Dataview 查看草稿、待审查文档、治理文档和索引状态 |
 
-## 9. 索引维护规则
+## 10. 索引维护规则
 
 1. 新增文档后必须更新本索引或对应分区索引。
 2. 删除、归档、迁移文档后必须同步修改索引。
