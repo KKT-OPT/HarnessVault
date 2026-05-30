@@ -9,7 +9,7 @@ tags:
   - harness
   - plan
   - governance
-version: v0.3.0
+version: v0.4.0
 createdAt: 2026-05-29 00:00:00.000 +08:00
 updatedAt: 2026-05-31 00:00:00.000 +08:00
 status: draft
@@ -38,9 +38,9 @@ reviewAfter: 2026-06-30 00:00:00.000 +08:00
 
 ## 1. 当前阶段
 
-当前阶段：`P2 - 核心治理规则实质化`
+当前阶段：`P3 - Project Template 最小实例化能力`
 
-P2 的目标是在 P1 已完成的索引、计划和报告入口基础上，将最关键的 6 个占位文档升级为可执行治理规则，使智能体可以按规则加载上下文、维护索引、判断文档生命周期，并受控地处理 Skill 与 Memory。
+P3 的目标是在 P2 已完成的核心治理规则基础上，补齐通用 Harness Template 的最小项目实例化能力，使 `docs/project-template/` 可以被复制为真实项目中的 `docs/project/`，并为智能体提供项目架构、语义字典、仓库信息和任务 workflow 的标准入口。
 
 ## 2. P0 状态
 
@@ -72,36 +72,26 @@ P1：`HarnessVault 计划与索引治理收口`
 4. 当前阶段不再描述过期的 P0 临时分支状态。
 5. P2 的核心治理规则实质化清单已明确。
 
-## 4. P2 目标
+## 4. P2 状态
 
-P2 聚焦核心治理规则实质化，不扩展 Project Template，不新增运行时代码。
+P2：`核心治理规则实质化`
 
-P2 要完成以下文档的正文实质化：
+状态：`completed`
 
-1. `docs/governance/IndexMaintenancePolicy.md`
-2. `docs/agent/ContextLoadingPolicy.md`
-3. `docs/governance/ArtifactLifecycle.md`
-4. `docs/governance/ScheduledGovernance.md`
-5. `docs/agent/SkillPolicy.md`
-6. `docs/agent/MemoryPolicy.md`
+已完成：
 
-## 5. P2 验收标准
+1. [[IndexMaintenancePolicy]] 已能指导新增、移动、归档、删除文档时应更新哪些 index。
+2. [[ContextLoadingPolicy]] 已能指导智能体按任务类型加载最小必要上下文。
+3. [[ArtifactLifecycle]] 已定义文档、Skill、Memory、RAG、Workflow、Report 的状态迁移。
+4. [[ScheduledGovernance]] 已定义 dry-run、报告优先、人工审批和允许自动修复的边界。
+5. [[SkillPolicy]] 已定义 Skill 的使用、创建、更新、合并、归档和污染控制。
+6. [[MemoryPolicy]] 已定义 Memory 的读取、写入、候选生成、晋升、归档和污染控制。
 
-P2 完成标准：
+## 5. P3 目标
 
-1. [[IndexMaintenancePolicy]] 能指导新增、移动、归档、删除文档时应更新哪些 index。
-2. [[ContextLoadingPolicy]] 能指导智能体按任务类型加载最小必要上下文。
-3. [[ArtifactLifecycle]] 能定义文档、Skill、Memory、RAG、Workflow、Report 的状态迁移。
-4. [[ScheduledGovernance]] 能定义 dry-run、报告优先、人工审批和允许自动修复的边界。
-5. [[SkillPolicy]] 能定义 Skill 的使用、创建、更新、合并、归档和污染控制。
-6. [[MemoryPolicy]] 能定义 Memory 的读取、写入、候选生成、晋升、归档和污染控制。
-7. 本阶段不修改 `main`，通过 P2 分支和 PR 交付。
+P3 聚焦 Project Template 最小实例化能力，不填入任何具体项目事实。
 
-## 6. P3 建议任务
-
-P3：`Project Template 最小实例化能力`
-
-建议优先落地：
+P3 要完成以下模板文档：
 
 1. `docs/project-template/README.md`
 2. `docs/project-template/architecture/ARCHITECTURE.md`
@@ -109,13 +99,41 @@ P3：`Project Template 最小实例化能力`
 4. `docs/project-template/git/Repository.md`
 5. `docs/project-template/workflow/WorkflowTemplate.md`
 
-P3 的目标是让 HarnessVault 可以被复制到真实项目，并能快速形成 Project Harness Instance。
+## 6. P3 验收标准
 
-## 7. 风险与注意事项
+P3 完成标准：
+
+1. [[ProjectIndex]] 已从 planned 列表升级为可导航的项目模板索引。
+2. `docs/project-template/README.md` 能说明如何从通用模板实例化到 `docs/project/`。
+3. `docs/project-template/architecture/ARCHITECTURE.md` 能作为项目架构事实源模板。
+4. `docs/project-template/dictionary/SemanticDictionary.md` 能作为术语、命名、字段和概念归一模板。
+5. `docs/project-template/git/Repository.md` 能记录仓库、分支、构建、测试和提交边界模板。
+6. `docs/project-template/workflow/WorkflowTemplate.md` 能记录真实项目任务过程、验收和 promotion candidates。
+7. 新增文档全部包含 frontmatter。
+8. 新增文档全部被 [[ProjectIndex]] 链接。
+9. 文档内容不包含任何具体项目事实。
+10. 本阶段不修改 `main`，通过 P3 分支和 PR 交付。
+
+## 7. P4 建议任务
+
+P4：`Project Template 扩展分区占位与 RAG 最小治理`
+
+建议后续根据需要补齐：
+
+1. `docs/project-template/prd/README.md`
+2. `docs/project-template/api/README.md`
+3. `docs/project-template/data/README.md`
+4. `docs/project-template/test/README.md`
+5. `docs/project-template/decision/ADR-0001-template.md`
+6. `docs/rag/KnowledgeBasePolicy.md` 正文实质化
+
+P4 的目标是扩展 Project Template 的项目管理覆盖面，同时开始建立 RAG 知识库准入规则。
+
+## 8. 风险与注意事项
 
 1. 不要把 Dataview 输出当作正式索引。
 2. 不要让 Obsidian workspace、插件代码和 IDE 本地状态进入智能体默认上下文。
 3. 不要把一次性任务记录直接写入 Memory 或 Skill。
 4. 不要在未建立治理报告前自动修改长期资产。
 5. 重大架构变化应走分支和 PR。
-6. 当前阶段只实质化核心治理规则，不扩展项目模板细节。
+6. 当前阶段只落地通用项目模板，不填入具体项目事实。
