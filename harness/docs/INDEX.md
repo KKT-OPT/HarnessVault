@@ -9,18 +9,24 @@ tags:
   - harness
   - index
   - documentation
-version: v0.1.0
+version: v0.2.0
 createdAt: 2026-05-29 00:00:00.000 +08:00
-updatedAt: 2026-05-29 00:00:00.000 +08:00
+updatedAt: 2026-05-30 00:00:00.000 +08:00
 status: draft
 type: index
-purpose: HarnessVault 文档导航入口，帮助人类和智能体快速定位必读、按需读和治理相关文档。
+purpose: HarnessVault 顶层文档导航入口，链接各架构层的二级索引。
 scope: HarnessVault 通用文档系统。
 prerequisites:
   - AGENTS.md
 relatedDocuments:
-  - docs/HarnessEngineering.md
-  - docs/PLANS.md
+  - "[[HarnessEngineering]]"
+  - "[[PLANS]]"
+  - "[[GovernanceIndex]]"
+  - "[[AgentIndex]]"
+  - "[[RAGIndex]]"
+  - "[[ProjectIndex]]"
+  - "[[Dashboard]]"
+  - "[[ObsidianSetup]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -37,76 +43,29 @@ reviewAfter: 2026-06-29 00:00:00.000 +08:00
 2. [[PLANS]]：当前阶段计划和后续任务。
 3. `AGENTS.md`：vault 内智能体入口契约。
 
-## 2. 架构与总体设计
+## 2. 架构层索引
+
+| 架构层 | 索引文档 | 用途 |
+|---|---|---|
+| Governance Runtime Layer | [[GovernanceIndex]] | 生命周期、定期治理、安全治理、清理、晋升和索引维护 |
+| Agent Capability Layer | [[AgentIndex]] | 智能体上下文加载、Prompt、Skill、Memory 等能力说明 |
+| Knowledge Layer | [[RAGIndex]] | RAG 知识库入口和知识库治理规则 |
+| Project Template Layer | [[ProjectIndex]] | 项目实例化模板入口 |
+| Obsidian Tooling Layer | [[ObsidianSetup]] | Obsidian、Dataview、Templater、Linter 使用说明 |
+| Dynamic View Layer | [[Dashboard]] | Dataview 动态视图，不替代正式索引 |
+
+## 3. 核心架构文档
 
 | 文档 | 状态 | 用途 |
 |---|---|---|
 | [[HarnessEngineering]] | draft | Harness 文档系统总体架构、治理机制、目录边界和长期演进规则 |
-
-## 3. 计划与阶段治理
-
-| 文档 | 状态 | 用途 |
-|---|---|---|
 | [[PLANS]] | draft | 当前阶段目标、验收标准和下一步拆分计划 |
 
-## 4. Governance 文档区
+## 4. 索引维护规则
 
-后续将从 [[HarnessEngineering]] 拆分：
-
-- [[ArtifactLifecycle]]
-- [[ScheduledGovernance]]
-- [[SecurityGovernance]]
-- [[IndexMaintenancePolicy]]
-- [[SkillGovernance]]
-- [[MemoryGovernance]]
-- [[DocumentGovernance]]
-- [[KnowledgePromotionPolicy]]
-- [[CleanupPolicy]]
-
-## 5. Agent 文档区
-
-后续将从 [[HarnessEngineering]] 拆分：
-
-- [[ContextLoadingPolicy]]
-- [[PromptPolicy]]
-- [[SkillPolicy]]
-- [[MemoryPolicy]]
-- [[SkillIndex]]
-- [[MemoryIndex]]
-
-## 6. RAG 文档区
-
-后续将从 [[HarnessEngineering]] 拆分：
-
-- [[RAGIndex]]
-- [[KnowledgeBasePolicy]]
-
-## 7. Project Template 文档区
-
-后续将从 [[HarnessEngineering]] 拆分：
-
-- [[ProjectIndex]]
-- project-template/prd/
-- project-template/architecture/
-- project-template/dictionary/
-- project-template/git/
-- project-template/workflow/
-
-## 8. Obsidian 配置
-
-| 文档 | 状态 | 用途 |
-|---|---|---|
-| [[ObsidianSetup]] | draft | 说明 Obsidian vault root、插件配置、Templater 使用方式和 Git 维护边界 |
-
-## 9. Obsidian 辅助视图
-
-| 文档 | 用途 |
-|---|---|
-| [[Dashboard]] | 使用 Dataview 查看草稿、待审查文档、治理文档和索引状态 |
-
-## 10. 索引维护规则
-
-1. 新增文档后必须更新本索引或对应分区索引。
-2. 删除、归档、迁移文档后必须同步修改索引。
-3. `stale`、`deprecated`、`archived` 文档不得作为默认推荐文档。
-4. 索引应指向 Markdown 事实源，不应指向 Obsidian workspace、插件代码、Notebook 输出或 HTML 展示产物。
+1. 顶层 `INDEX.md` 只链接各架构层入口索引，不直接列出所有子文档。
+2. 各层具体文档由本层 index 维护。
+3. 新增文档后必须更新对应分区索引。
+4. 删除、归档、迁移文档后必须同步修改对应分区索引。
+5. `stale`、`deprecated`、`archived` 文档不得作为默认推荐文档。
+6. 索引应指向 Markdown 事实源，不应指向 Obsidian workspace、插件运行代码、Notebook 输出或 HTML 展示产物。

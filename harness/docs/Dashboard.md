@@ -10,9 +10,9 @@ tags:
   - dashboard
   - obsidian
   - dataview
-version: v0.1.0
+version: v0.2.0
 createdAt: 2026-05-29 00:00:00.000 +08:00
-updatedAt: 2026-05-29 00:00:00.000 +08:00
+updatedAt: 2026-05-30 00:00:00.000 +08:00
 status: draft
 type: report
 purpose: 使用 Obsidian Dataview 为 HarnessVault 提供动态文档治理视图。
@@ -21,9 +21,14 @@ prerequisites:
   - docs/INDEX.md
   - docs/PLANS.md
 relatedDocuments:
-  - docs/HarnessEngineering.md
-  - docs/INDEX.md
-  - docs/PLANS.md
+  - "[[HarnessEngineering]]"
+  - "[[INDEX]]"
+  - "[[PLANS]]"
+  - "[[GovernanceIndex]]"
+  - "[[AgentIndex]]"
+  - "[[RAGIndex]]"
+  - "[[ProjectIndex]]"
+  - "[[ObsidianSetup]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -52,47 +57,74 @@ WHERE reviewAfter AND date(reviewAfter) <= date(today)
 SORT reviewAfter ASC
 ```
 
-## 3. Governance Documents
-
-```dataview
-TABLE version, status, updatedAt, reviewAfter
-FROM "docs"
-WHERE contains(tags, "governance")
-SORT file.name ASC
-```
-
-## 4. Architecture Documents
-
-```dataview
-TABLE version, status, updatedAt, reviewAfter
-FROM "docs"
-WHERE type = "architecture-design"
-SORT file.name ASC
-```
-
-## 5. Index Documents
+## 3. Index Documents
 
 ```dataview
 TABLE version, status, updatedAt, purpose
 FROM "docs"
 WHERE type = "index"
-SORT file.name ASC
+SORT file.path ASC
 ```
 
-## 6. Plan Documents
+## 4. Policy Documents
 
 ```dataview
-TABLE version, status, updatedAt, purpose
+TABLE version, status, updatedAt, reviewAfter
 FROM "docs"
-WHERE type = "plan"
-SORT file.name ASC
+WHERE type = "policy"
+SORT file.path ASC
 ```
 
-## 7. Missing Review Date
+## 5. Governance Documents
+
+```dataview
+TABLE version, status, updatedAt, reviewAfter
+FROM "docs"
+WHERE contains(tags, "governance")
+SORT file.path ASC
+```
+
+## 6. Agent Documents
+
+```dataview
+TABLE version, status, updatedAt, reviewAfter
+FROM "docs"
+WHERE contains(tags, "agent")
+SORT file.path ASC
+```
+
+## 7. RAG Documents
+
+```dataview
+TABLE version, status, updatedAt, reviewAfter
+FROM "docs"
+WHERE contains(tags, "rag")
+SORT file.path ASC
+```
+
+## 8. Project Template Documents
+
+```dataview
+TABLE version, status, updatedAt, reviewAfter
+FROM "docs"
+WHERE contains(tags, "project-template")
+SORT file.path ASC
+```
+
+## 9. Missing Review Date
 
 ```dataview
 TABLE status, owner, updatedAt, purpose
 FROM "docs"
 WHERE !reviewAfter
+SORT file.path ASC
+```
+
+## 10. Missing Owner
+
+```dataview
+TABLE status, updatedAt, purpose
+FROM "docs"
+WHERE !owner
 SORT file.path ASC
 ```
