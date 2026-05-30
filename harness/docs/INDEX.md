@@ -9,7 +9,7 @@ tags:
   - harness
   - index
   - documentation
-version: v0.2.0
+version: v0.3.0
 createdAt: 2026-05-29 00:00:00.000 +08:00
 updatedAt: 2026-05-30 00:00:00.000 +08:00
 status: draft
@@ -25,6 +25,7 @@ relatedDocuments:
   - "[[AgentIndex]]"
   - "[[RAGIndex]]"
   - "[[ProjectIndex]]"
+  - "[[ReportsIndex]]"
   - "[[Dashboard]]"
   - "[[ObsidianSetup]]"
 outputTo:
@@ -51,6 +52,7 @@ reviewAfter: 2026-06-29 00:00:00.000 +08:00
 | Agent Capability Layer | [[AgentIndex]] | 智能体上下文加载、Prompt、Skill、Memory 等能力说明 |
 | Knowledge Layer | [[RAGIndex]] | RAG 知识库入口和知识库治理规则 |
 | Project Template Layer | [[ProjectIndex]] | 项目实例化模板入口 |
+| Governance Reports Layer | [[ReportsIndex]] | 治理报告、索引检查报告和 dry-run 结果入口 |
 | Obsidian Tooling Layer | [[ObsidianSetup]] | Obsidian、Dataview、Templater、Linter 使用说明 |
 | Dynamic View Layer | [[Dashboard]] | Dataview 动态视图，不替代正式索引 |
 
