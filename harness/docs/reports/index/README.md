@@ -9,9 +9,9 @@ tags:
   - harness
   - reports
   - index
-version: v0.1.0
+version: v0.2.0
 createdAt: 2026-05-30 00:00:00.000 +08:00
-updatedAt: 2026-05-30 00:00:00.000 +08:00
+updatedAt: 2026-05-31 00:00:00.000 +08:00
 status: draft
 type: index
 purpose: 记录 HarnessVault 索引完整性、链接完整性、orphan 文档和路径一致性检查报告。
@@ -24,6 +24,7 @@ relatedDocuments:
   - "[[IndexMaintenancePolicy]]"
   - "[[INDEX]]"
   - "[[GovernanceIndex]]"
+  - "[[IndexCheckReportTemplate]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -42,7 +43,13 @@ reviewAfter: 2026-06-30 00:00:00.000 +08:00
 4. orphan document 检查报告；
 5. frontmatter `documentName` 与实际路径一致性检查报告。
 
-## 2. 命名建议
+## 2. 当前模板
+
+| 模板 | 用途 |
+|---|---|
+| [[IndexCheckReportTemplate]] | 索引完整性、broken link、orphan 文档、frontmatter 路径一致性检查模板 |
+
+## 3. 命名建议
 
 ```text
 YYYYMMDD-index-check.md
@@ -51,15 +58,17 @@ YYYYMMDD-orphan-documents.md
 YYYYMMDD-path-frontmatter-check.md
 ```
 
-## 3. 报告规则
+## 4. 报告规则
 
 1. 索引检查报告只提出问题和修复建议。
 2. 自动修复仅限低风险机械问题，并必须保留报告。
 3. 涉及文档迁移、归档和删除时必须人工确认。
+4. 索引报告关闭后可根据 [[CleanupPolicy]] 归档。
 
-## 4. 关联文档
+## 5. 关联文档
 
 - [[HarnessEngineering]]
 - [[IndexMaintenancePolicy]]
 - [[INDEX]]
 - [[GovernanceIndex]]
+- [[IndexCheckReportTemplate]]
