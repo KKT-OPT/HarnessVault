@@ -10,9 +10,9 @@ tags:
   - reports
   - governance
   - index
-version: v0.1.0
+version: v0.2.0
 createdAt: 2026-05-30 00:00:00.000 +08:00
-updatedAt: 2026-05-30 00:00:00.000 +08:00
+updatedAt: 2026-05-31 00:00:00.000 +08:00
 status: draft
 type: index
 purpose: 索引 HarnessVault 的治理报告、索引检查报告和后续自动化 dry-run 报告。
@@ -25,6 +25,8 @@ relatedDocuments:
   - "[[INDEX]]"
   - "[[GovernanceIndex]]"
   - "[[Dashboard]]"
+  - "[[GovernanceReportTemplate]]"
+  - "[[IndexCheckReportTemplate]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -50,8 +52,24 @@ reviewAfter: 2026-06-30 00:00:00.000 +08:00
 | `docs/reports/rag/` | RAG 来源、审查、过期、未审查知识检查报告 |
 | `docs/reports/security/` | 上下文安全、插件代码、secrets、外部输出风险检查报告 |
 
-## 3. 关联文档
+## 3. 当前报告模板
+
+| 模板 | 用途 |
+|---|---|
+| [[GovernanceReportTemplate]] | 人工治理报告模板 |
+| [[IndexCheckReportTemplate]] | 索引完整性检查报告模板 |
+
+## 4. 报告规则
+
+1. 报告是证据，不是事实源。
+2. 报告建议必须经过人工审查后才能写入正式文档。
+3. 报告中的自动修复候选不得绕过审批。
+4. 报告关闭后可保留为 archived。
+
+## 5. 关联文档
 
 - [[HarnessEngineering]]
 - [[GovernanceIndex]]
 - [[Dashboard]]
+- [[GovernanceReportTemplate]]
+- [[IndexCheckReportTemplate]]
