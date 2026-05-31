@@ -9,9 +9,9 @@ tags:
   - harness
   - index
   - documentation
-version: v0.3.0
+version: v0.4.0
 createdAt: 2026-05-29 00:00:00.000 +08:00
-updatedAt: 2026-05-30 00:00:00.000 +08:00
+updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
 type: index
 purpose: HarnessVault 顶层文档导航入口，链接各架构层的二级索引。
@@ -26,12 +26,14 @@ relatedDocuments:
   - "[[RAGIndex]]"
   - "[[ProjectIndex]]"
   - "[[ReportsIndex]]"
+  - "[[ObservabilityIndex]]"
+  - "[[VerificationIndex]]"
   - "[[Dashboard]]"
   - "[[ObsidianSetup]]"
 outputTo:
   - HarnessVault
 owner: human
-reviewAfter: 2026-06-29 00:00:00.000 +08:00
+reviewAfter: 2026-07-01 00:00:00.000 +08:00
 ---
 
 # Harness 文档索引
@@ -48,10 +50,12 @@ reviewAfter: 2026-06-29 00:00:00.000 +08:00
 
 | 架构层 | 索引文档 | 用途 |
 |---|---|---|
-| Governance Runtime Layer | [[GovernanceIndex]] | 生命周期、定期治理、安全治理、清理、晋升和索引维护 |
+| Governance Runtime Layer | [[GovernanceIndex]] | 生命周期、定期治理、安全治理、清理、晋升、runtime 边界和索引维护 |
 | Agent Capability Layer | [[AgentIndex]] | 智能体上下文加载、Prompt、Skill、Memory 等能力说明 |
 | Knowledge Layer | [[RAGIndex]] | RAG 知识库入口和知识库治理规则 |
 | Project Template Layer | [[ProjectIndex]] | 项目实例化模板入口 |
+| Observability Layer | [[ObservabilityIndex]] | 任务 trace、操作事件、失败归因、证据和人工介入记录 |
+| Verification Layer | [[VerificationIndex]] | 执行前 readiness、验收、回归验证和修复闭环 |
 | Governance Reports Layer | [[ReportsIndex]] | 治理报告、索引检查报告和 dry-run 结果入口 |
 | Obsidian Tooling Layer | [[ObsidianSetup]] | Obsidian、Dataview、Templater、Linter 使用说明 |
 | Dynamic View Layer | [[Dashboard]] | Dataview 动态视图，不替代正式索引 |
