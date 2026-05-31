@@ -9,7 +9,7 @@ tags:
   - harness
   - project-template
   - index
-version: v0.3.0
+version: v0.4.0
 createdAt: 2026-05-30 00:00:00.000 +08:00
 updatedAt: 2026-05-31 00:00:00.000 +08:00
 status: draft
@@ -26,6 +26,7 @@ relatedDocuments:
   - "[[SemanticDictionary]]"
   - "[[Repository]]"
   - "[[WorkflowTemplate]]"
+  - "[[ADR-0001-template]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -50,7 +51,7 @@ docs/project-template/
 docs/project/
 ```
 
-P3 阶段只提供最小实例化能力，不填入任何具体项目事实。
+Project Template 只提供结构、字段、检查项和占位变量，不保存任何具体项目事实。
 
 ## 2. P3 最小模板文档
 
@@ -62,21 +63,31 @@ P3 阶段只提供最小实例化能力，不填入任何具体项目事实。
 | [[Repository]] | draft | 仓库、分支、构建、测试和提交边界模板 |
 | [[WorkflowTemplate]] | draft | 真实项目任务过程、验收和 promotion candidates 记录模板 |
 
-## 3. 项目模板分区
+## 3. P4 扩展分区占位
+
+| 模板文档 | 状态 | 用途 |
+|---|---|---|
+| `docs/project-template/prd/README.md` | draft | 项目需求文档分区说明 |
+| `docs/project-template/api/README.md` | draft | API 文档分区说明 |
+| `docs/project-template/data/README.md` | draft | 数据文档分区说明 |
+| `docs/project-template/test/README.md` | draft | 测试文档分区说明 |
+| [[ADR-0001-template]] | draft | ADR 架构决策记录模板 |
+
+## 4. 项目模板分区
 
 | 分区 | 状态 | 用途 |
 |---|---|---|
-| `docs/project-template/prd/` | planned | 项目需求文档模板 |
+| `docs/project-template/prd/` | draft | 项目需求文档模板 |
 | `docs/project-template/architecture/` | draft | 项目架构文档模板 |
 | `docs/project-template/dictionary/` | draft | 语义字典、术语字典模板 |
 | `docs/project-template/git/` | draft | 仓库、分支、提交、PR 规则模板 |
-| `docs/project-template/api/` | planned | 接口文档模板 |
-| `docs/project-template/data/` | planned | 数据结构、数据源、数据约束模板 |
-| `docs/project-template/test/` | planned | 测试策略、测试报告、验收标准模板 |
+| `docs/project-template/api/` | draft | 接口文档模板 |
+| `docs/project-template/data/` | draft | 数据结构、数据源、数据约束模板 |
+| `docs/project-template/test/` | draft | 测试策略、测试报告、验收标准模板 |
 | `docs/project-template/workflow/` | draft | 项目真实任务 workflow 记录模板 |
-| `docs/project-template/decision/` | planned | ADR 架构决策记录模板 |
+| `docs/project-template/decision/` | draft | ADR 架构决策记录模板 |
 
-## 4. 实例化规则
+## 5. 实例化规则
 
 将 Project Template 复制到真实项目时：
 
@@ -87,7 +98,7 @@ P3 阶段只提供最小实例化能力，不填入任何具体项目事实。
 5. 更新真实项目的 `AGENTS.md`；
 6. 创建第一条项目 workflow。
 
-## 5. 禁止事项
+## 6. 禁止事项
 
 Project Template 中不得写入：
 
@@ -99,9 +110,10 @@ Project Template 中不得写入：
 6. 真实任务历史；
 7. 项目级 Memory 或 Skill。
 
-## 6. 关联文档
+## 7. 关联文档
 
 - [[HarnessEngineering]]
 - [[INDEX]]
 - [[GovernanceIndex]]
 - [[ContextLoadingPolicy]]
+- [[KnowledgeBasePolicy]]
