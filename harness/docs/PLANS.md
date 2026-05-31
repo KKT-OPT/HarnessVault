@@ -9,7 +9,7 @@ tags:
   - harness
   - plan
   - governance
-version: v0.5.0
+version: v0.6.0
 createdAt: 2026-05-29 00:00:00.000 +08:00
 updatedAt: 2026-05-31 00:00:00.000 +08:00
 status: draft
@@ -38,9 +38,9 @@ reviewAfter: 2026-06-30 00:00:00.000 +08:00
 
 ## 1. 当前阶段
 
-当前阶段：`P4 - Project Template 扩展分区占位与 RAG 最小治理`
+当前阶段：`P5 - Harness 最小治理报告与检查清单`
 
-P4 的目标是在 P3 已完成的 Project Template 最小实例化能力基础上，补齐通用项目模板的扩展分区占位，并建立 RAG 知识库最小治理规则，使 HarnessVault 既能复制为项目文档结构，也能明确知识库内容的准入、审查、晋升和只读边界。
+P5 的目标是在 P4 已完成 Project Template 扩展分区和 RAG 最小治理的基础上，补齐可执行的人工治理报告模板，并实质化安全治理、文档治理和清理规则，使 HarnessVault 具备可审查、可记录、可回滚的治理闭环。
 
 ## 2. P0 状态
 
@@ -105,54 +105,68 @@ P3：`Project Template 最小实例化能力`
 8. 新增文档全部被 [[ProjectIndex]] 链接。
 9. 文档内容不包含任何具体项目事实。
 
-## 6. P4 目标
+## 6. P4 状态
 
-P4 聚焦 Project Template 扩展分区占位与 RAG 最小治理，不填入任何具体项目事实，也不引入外部知识正文。
+P4：`Project Template 扩展分区占位与 RAG 最小治理`
 
-P4 要完成：
+状态：`completed`
 
-1. `docs/project-template/prd/README.md`
-2. `docs/project-template/api/README.md`
-3. `docs/project-template/data/README.md`
-4. `docs/project-template/test/README.md`
-5. `docs/project-template/decision/ADR-0001-template.md`
-6. `docs/rag/KnowledgeBasePolicy.md` 正文实质化
-7. `docs/governance/KnowledgePromotionPolicy.md` 正文实质化
-8. 更新 [[ProjectIndex]] 和 [[RAGIndex]]
-
-## 7. P4 验收标准
-
-P4 完成标准：
+已完成：
 
 1. Project Template 的 `prd/api/data/test/decision` 分区已有最小占位文档。
 2. [[ProjectIndex]] 已链接 P3 与 P4 的 project-template 文档。
-3. [[KnowledgeBasePolicy]] 能说明 RAG 知识库的来源、准入、审查、更新和只读边界。
-4. [[KnowledgePromotionPolicy]] 能说明 Workflow、Memory、Skill、RAG、Project Facts 之间的晋升路径和审批规则。
+3. [[KnowledgeBasePolicy]] 已说明 RAG 知识库的来源、准入、审查、更新和只读边界。
+4. [[KnowledgePromotionPolicy]] 已说明 Workflow、Memory、Skill、RAG、Project Facts 之间的晋升路径和审批规则。
 5. [[RAGIndex]] 已能导航 RAG 策略文档与 `standard/domain` 分区。
 6. 新增文档全部包含 frontmatter。
 7. 新增文档不包含任何真实项目事实或外部知识正文。
-8. 本阶段不修改 `main`，通过 P4 分支和 PR 交付。
 
-## 8. P5 建议任务
+## 7. P5 目标
 
-P5：`Harness 最小治理报告与检查清单`
+P5 聚焦最小治理报告与检查清单，补齐安全、文档和清理规则。
 
-建议后续优先落地：
+P5 要完成：
 
-1. `docs/reports/governance/YYYYMMDD-governance-report-template.md`
-2. `docs/reports/index/YYYYMMDD-index-check-template.md`
+1. `docs/reports/governance/GovernanceReportTemplate.md`
+2. `docs/reports/index/IndexCheckReportTemplate.md`
 3. `docs/governance/SecurityGovernance.md` 正文实质化
 4. `docs/governance/DocumentGovernance.md` 正文实质化
 5. `docs/governance/CleanupPolicy.md` 正文实质化
+6. 更新 [[ReportsIndex]] 与对应 reports README
 
-P5 的目标是让 HarnessVault 开始具备可执行的人工治理报告模板和安全/清理规则。
+## 8. P5 验收标准
 
-## 9. 风险与注意事项
+P5 完成标准：
+
+1. [[SecurityGovernance]] 能定义上下文安全、插件代码边界、外部工具输出和敏感信息检查规则。
+2. [[DocumentGovernance]] 能定义文档新增、更新、拆分、归档、删除和审查规则。
+3. [[CleanupPolicy]] 能定义文档资产、Memory、Skill、RAG 和报告产物的清理、归档和删除规则。
+4. `GovernanceReportTemplate.md` 能作为人工治理报告模板。
+5. `IndexCheckReportTemplate.md` 能作为索引完整性检查报告模板。
+6. [[ReportsIndex]] 能链接治理报告模板和索引检查报告模板。
+7. 本阶段不修改 `main`，通过 P5 分支和 PR 交付。
+
+## 9. P6 建议任务
+
+P6：`Skill / Memory 最小资产骨架与治理报告实例`
+
+建议后续优先落地：
+
+1. `docs/agent/skills/.skill-usage.json` 初始结构确认
+2. `docs/agent/skills/_TEMPLATE/SKILL.md` 正文增强
+3. `docs/agent/memory/active/README.md`
+4. `docs/agent/memory/candidates/README.md`
+5. `docs/agent/memory/archive/README.md`
+6. 生成第一份 dry-run governance report 示例
+
+P6 的目标是让 Skill / Memory 目录从 policy 层进入可管理资产层。
+
+## 10. 风险与注意事项
 
 1. 不要把 Dataview 输出当作正式索引。
 2. 不要让 Obsidian workspace、插件代码和 IDE 本地状态进入智能体默认上下文。
 3. 不要把一次性任务记录直接写入 Memory 或 Skill。
-4. 不要在未建立治理报告前自动修改长期资产。
+4. 治理报告是证据，不是事实源。
 5. 重大架构变化应走分支和 PR。
 6. Project Template 只保留通用占位，不填入具体项目事实。
 7. RAG 最小治理只定义准入和晋升规则，不直接导入外部知识正文。
