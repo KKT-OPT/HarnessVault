@@ -10,9 +10,9 @@ tags:
   - reports
   - governance
   - index
-version: v0.2.0
+version: v0.3.0
 createdAt: 2026-05-30 00:00:00.000 +08:00
-updatedAt: 2026-05-31 00:00:00.000 +08:00
+updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
 type: index
 purpose: 索引 HarnessVault 的治理报告、索引检查报告和后续自动化 dry-run 报告。
@@ -27,10 +27,14 @@ relatedDocuments:
   - "[[Dashboard]]"
   - "[[GovernanceReportTemplate]]"
   - "[[IndexCheckReportTemplate]]"
+  - "[[MemoryReports]]"
+  - "[[SkillReports]]"
+  - "[[RAGReports]]"
+  - "[[SecurityReports]]"
 outputTo:
   - HarnessVault
 owner: human
-reviewAfter: 2026-06-30 00:00:00.000 +08:00
+reviewAfter: 2026-07-01 00:00:00.000 +08:00
 ---
 
 # Reports Index
@@ -43,14 +47,14 @@ reviewAfter: 2026-06-30 00:00:00.000 +08:00
 
 ## 2. 当前报告分区
 
-| 分区 | 用途 |
-|---|---|
-| `docs/reports/governance/` | 综合治理报告、生命周期检查、定期治理 dry-run 报告 |
-| `docs/reports/index/` | 索引完整性、broken link、orphan document 检查报告 |
-| `docs/reports/memory/` | Memory 候选、污染、过期、重复检查报告 |
-| `docs/reports/skills/` | Skill 使用情况、stale、archive、合并候选报告 |
-| `docs/reports/rag/` | RAG 来源、审查、过期、未审查知识检查报告 |
-| `docs/reports/security/` | 上下文安全、插件代码、secrets、外部输出风险检查报告 |
+| 分区 | 索引 | 用途 |
+|---|---|---|
+| `docs/reports/governance/` | [[GovernanceReports]] | 综合治理报告、生命周期检查、定期治理 dry-run 报告 |
+| `docs/reports/index/` | [[IndexReports]] | 索引完整性、broken link、orphan document 检查报告 |
+| `docs/reports/memory/` | [[MemoryReports]] | Memory 候选、污染、过期、重复检查报告 |
+| `docs/reports/skills/` | [[SkillReports]] | Skill 使用情况、stale、archive、合并候选报告 |
+| `docs/reports/rag/` | [[RAGReports]] | RAG 来源、审查、过期、未审查知识检查报告 |
+| `docs/reports/security/` | [[SecurityReports]] | 上下文安全、插件代码、secrets、外部输出风险检查报告 |
 
 ## 3. 当前报告模板
 
@@ -73,3 +77,7 @@ reviewAfter: 2026-06-30 00:00:00.000 +08:00
 - [[Dashboard]]
 - [[GovernanceReportTemplate]]
 - [[IndexCheckReportTemplate]]
+- [[MemoryReports]]
+- [[SkillReports]]
+- [[RAGReports]]
+- [[SecurityReports]]

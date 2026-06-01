@@ -9,7 +9,7 @@ tags:
   - harness
   - reports
   - index
-version: v0.3.0
+version: v0.4.0
 createdAt: 2026-05-30 00:00:00.000 +08:00
 updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
@@ -26,6 +26,7 @@ relatedDocuments:
   - "[[GovernanceIndex]]"
   - "[[IndexCheckReportTemplate]]"
   - "[[HarnessIndexDryRunReport]]"
+  - "[[FrontmatterPathDryRunReport]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -50,6 +51,7 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 |---|---|
 | [[IndexCheckReportTemplate]] | 索引完整性、broken link、orphan 文档、frontmatter 路径一致性检查模板 |
 | [[HarnessIndexDryRunReport]] | HarnessVault index dry-run 检查报告 |
+| [[FrontmatterPathDryRunReport]] | Frontmatter documentName 与实际路径一致性 dry-run 报告 |
 
 ## 3. 命名建议
 
@@ -76,3 +78,4 @@ YYYYMMDD-path-frontmatter-check.md
 - [[GovernanceIndex]]
 - [[IndexCheckReportTemplate]]
 - [[HarnessIndexDryRunReport]]
+- [[FrontmatterPathDryRunReport]]
