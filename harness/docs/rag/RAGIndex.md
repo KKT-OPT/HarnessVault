@@ -9,7 +9,7 @@ tags:
   - harness
   - rag
   - index
-version: v0.4.0
+version: v0.5.0
 createdAt: 2026-05-30 00:00:00.000 +08:00
 updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
@@ -25,6 +25,8 @@ relatedDocuments:
   - "[[KnowledgeIntakePolicy]]"
   - "[[KnowledgeIntake]]"
   - "[[KnowledgeIntakeTemplate]]"
+  - "[[RAGStandard]]"
+  - "[[RAGDomain]]"
   - "[[INDEX]]"
   - "[[GovernanceIndex]]"
 outputTo:
@@ -53,9 +55,9 @@ RAG 不保存任务历史，不直接保存一次性 workflow，不替代 Projec
 
 | 分区 | 状态 | 用途 |
 |---|---|---|
-| `docs/rag/intake/` | draft | 未审查知识候选暂存区，不是事实源 |
-| `docs/rag/standard/` | planned | 文档、代码、测试、审查等规范知识 |
-| `docs/rag/domain/` | planned | 领域知识、方法论和外部资料整理 |
+| [[KnowledgeIntake]] | draft | 未审查知识候选暂存区，不是事实源 |
+| [[RAGStandard]] | draft | 通用规范知识分区，当前不保存真实规范知识正文 |
+| [[RAGDomain]] | draft | 领域知识分区，当前不保存真实领域知识正文 |
 
 ## 4. Intake 文档
 
@@ -94,3 +96,5 @@ RAG 文档必须满足：
 - [[KnowledgeIntakePolicy]]
 - [[KnowledgeIntake]]
 - [[KnowledgeIntakeTemplate]]
+- [[RAGStandard]]
+- [[RAGDomain]]
