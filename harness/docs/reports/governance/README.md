@@ -9,7 +9,7 @@ tags:
   - harness
   - reports
   - governance
-version: v0.3.0
+version: v0.4.0
 createdAt: 2026-05-30 00:00:00.000 +08:00
 updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
@@ -26,6 +26,7 @@ relatedDocuments:
   - "[[GovernanceIndex]]"
   - "[[GovernanceReportTemplate]]"
   - "[[ExampleDryRunGovernanceReport]]"
+  - "[[HarnessArchitectureAssessment]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -44,14 +45,16 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 4. stale / archived / deprecated 文档审查报告；
 5. Workflow promotion candidate 审查报告；
 6. 安全治理报告；
-7. 清理和归档报告。
+7. 清理和归档报告；
+8. Harness 架构自检报告。
 
-## 2. 当前模板与示例
+## 2. 当前模板、示例与报告
 
 | 文档 | 用途 |
 |---|---|
 | [[GovernanceReportTemplate]] | 人工治理报告、生命周期审查、安全检查和清理建议的统一模板 |
 | [[ExampleDryRunGovernanceReport]] | 不含真实检查结果的 dry-run governance report 示例结构 |
+| [[HarnessArchitectureAssessment]] | 当前 HarnessVault 通用架构组织结构 dry-run 评估 |
 
 ## 3. 命名建议
 
@@ -62,6 +65,7 @@ YYYYMMDD-lifecycle-audit.md
 YYYYMMDD-promotion-candidates.md
 YYYYMMDD-security-check.md
 YYYYMMDD-cleanup-report.md
+YYYYMMDD-architecture-assessment.md
 ```
 
 ## 4. 报告规则
@@ -80,3 +84,4 @@ YYYYMMDD-cleanup-report.md
 - [[GovernanceIndex]]
 - [[GovernanceReportTemplate]]
 - [[ExampleDryRunGovernanceReport]]
+- [[HarnessArchitectureAssessment]]
