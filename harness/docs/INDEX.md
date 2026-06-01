@@ -9,7 +9,7 @@ tags:
   - harness
   - index
   - documentation
-version: v0.4.0
+version: v0.5.0
 createdAt: 2026-05-29 00:00:00.000 +08:00
 updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
@@ -28,6 +28,7 @@ relatedDocuments:
   - "[[ReportsIndex]]"
   - "[[ObservabilityIndex]]"
   - "[[VerificationIndex]]"
+  - "[[TemplatesIndex]]"
   - "[[Dashboard]]"
   - "[[ObsidianSetup]]"
 outputTo:
@@ -42,9 +43,9 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 
 任何智能体处理 HarnessVault 任务时，应优先读取：
 
-1. [[HarnessEngineering]]：Harness Engineering 总体架构设计。
-2. [[PLANS]]：当前阶段计划和后续任务。
-3. `AGENTS.md`：vault 内智能体入口契约。
+1. `AGENTS.md`：vault 内智能体入口契约。
+2. [[HarnessEngineering]]：Harness Engineering 总体架构设计。
+3. [[PLANS]]：当前阶段计划和后续任务。
 
 ## 2. 架构层索引
 
@@ -54,6 +55,7 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 | Agent Capability Layer | [[AgentIndex]] | 智能体上下文加载、Prompt、Skill、Memory 等能力说明 |
 | Knowledge Layer | [[RAGIndex]] | RAG 知识库入口和知识库治理规则 |
 | Project Template Layer | [[ProjectIndex]] | 项目实例化模板入口 |
+| Templates Layer | [[TemplatesIndex]] | Obsidian / Templater / Prompt 等统一模板源入口 |
 | Observability Layer | [[ObservabilityIndex]] | 任务 trace、操作事件、失败归因、证据和人工介入记录 |
 | Verification Layer | [[VerificationIndex]] | 执行前 readiness、验收、回归验证和修复闭环 |
 | Governance Reports Layer | [[ReportsIndex]] | 治理报告、索引检查报告和 dry-run 结果入口 |
