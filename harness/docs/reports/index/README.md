@@ -9,7 +9,7 @@ tags:
   - harness
   - reports
   - index
-version: v0.4.0
+version: v0.5.0
 createdAt: 2026-05-30 00:00:00.000 +08:00
 updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
@@ -27,6 +27,7 @@ relatedDocuments:
   - "[[IndexCheckReportTemplate]]"
   - "[[HarnessIndexDryRunReport]]"
   - "[[FrontmatterPathDryRunReport]]"
+  - "[[RealHarnessSelfCheckReport]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -43,7 +44,8 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 2. 各层 index 检查报告；
 3. broken link 检查报告；
 4. orphan document 检查报告；
-5. frontmatter `documentName` 与实际路径一致性检查报告。
+5. frontmatter `documentName` 与实际路径一致性检查报告；
+6. 真实 self-check 输出分类报告。
 
 ## 2. 当前模板与报告
 
@@ -52,6 +54,7 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 | [[IndexCheckReportTemplate]] | 索引完整性、broken link、orphan 文档、frontmatter 路径一致性检查模板 |
 | [[HarnessIndexDryRunReport]] | HarnessVault index dry-run 检查报告 |
 | [[FrontmatterPathDryRunReport]] | Frontmatter documentName 与实际路径一致性 dry-run 报告 |
+| [[RealHarnessSelfCheckReport]] | 用户本地真实 dry-run 输出、问题分类和 P11 修复策略报告 |
 
 ## 3. 命名建议
 
@@ -60,6 +63,7 @@ YYYYMMDD-index-check.md
 YYYYMMDD-broken-links.md
 YYYYMMDD-orphan-documents.md
 YYYYMMDD-path-frontmatter-check.md
+YYYYMMDD-real-self-check.md
 ```
 
 ## 4. 报告规则
@@ -79,3 +83,4 @@ YYYYMMDD-path-frontmatter-check.md
 - [[IndexCheckReportTemplate]]
 - [[HarnessIndexDryRunReport]]
 - [[FrontmatterPathDryRunReport]]
+- [[RealHarnessSelfCheckReport]]

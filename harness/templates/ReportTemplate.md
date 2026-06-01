@@ -1,21 +1,31 @@
 ---
-documentName: docs/reports/<category>/<% tp.date.now("YYYYMMDD") %>-<report-name>.md
-title: <Report Name>
+documentName: templates/ReportTemplate.md
+templateName: ReportTemplate
+templateTarget: docs/reports/<category>/<% tp.date.now("YYYYMMDD") %>-<report-name>.md
+templateEngine: obsidian-templater
+templatePurpose: 生成 governance 或 index report 文档。
+title: Report Template
 aliases:
-  - <Report Name>
+  - ReportTemplate
 tags:
   - harness
   - report
-version: v0.1.0
+  - template
+version: v0.2.0
 createdAt: <% tp.date.now("YYYY-MM-DD HH:mm:ss.SSS Z") %>
 updatedAt: <% tp.date.now("YYYY-MM-DD HH:mm:ss.SSS Z") %>
 status: draft
-type: report
-purpose:
-scope:
+type: template
+purpose: 提供 report 文档生成模板。
+scope: HarnessVault templates。
 prerequisites:
+  - AGENTS.md
 relatedDocuments:
+  - "[[TemplatesIndex]]"
+  - "[[ReportsIndex]]"
+  - "[[INDEX]]"
 outputTo:
+  - HarnessVault
 owner: human
 reviewAfter:
 ---

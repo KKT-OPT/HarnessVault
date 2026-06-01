@@ -1,21 +1,31 @@
 ---
-documentName: docs/agent/memory/<memory-type>/<memory-name>.md
-title: <Memory Name>
+documentName: templates/MemoryTemplate.md
+templateName: MemoryTemplate
+templateTarget: docs/agent/memory/<memory-type>/<memory-name>.md
+templateEngine: obsidian-templater
+templatePurpose: 生成 Memory 文档。
+title: Memory Template
 aliases:
-  - <Memory Name>
+  - MemoryTemplate
 tags:
   - harness
   - memory
-version: v0.1.0
+  - template
+version: v0.2.0
 createdAt: <% tp.date.now("YYYY-MM-DD HH:mm:ss.SSS Z") %>
 updatedAt: <% tp.date.now("YYYY-MM-DD HH:mm:ss.SSS Z") %>
 status: draft
-type: memory
-purpose:
-scope:
+type: template
+purpose: 提供 Memory 文档生成模板。
+scope: HarnessVault templates。
 prerequisites:
+  - AGENTS.md
 relatedDocuments:
+  - "[[TemplatesIndex]]"
+  - "[[MemoryIndex]]"
+  - "[[INDEX]]"
 outputTo:
+  - HarnessVault
 owner: human
 reviewAfter:
 ---
