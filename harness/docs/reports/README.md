@@ -10,12 +10,12 @@ tags:
   - reports
   - governance
   - index
-version: v0.3.0
+version: v0.4.0
 createdAt: 2026-05-30 00:00:00.000 +08:00
 updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
 type: index
-purpose: 索引 HarnessVault 的治理报告、索引检查报告和后续自动化 dry-run 报告。
+purpose: 索引 HarnessVault 的治理报告、索引检查报告、归档报告和后续自动化 dry-run 报告。
 scope: HarnessVault reports。
 prerequisites:
   - docs/HarnessEngineering.md
@@ -31,6 +31,7 @@ relatedDocuments:
   - "[[SkillReports]]"
   - "[[RAGReports]]"
   - "[[SecurityReports]]"
+  - "[[ReportsArchive]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -41,7 +42,7 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 
 ## 1. 定位
 
-`docs/reports/` 保存 HarnessVault 的治理报告、索引检查报告、安全检查报告、Skill / Memory / RAG 审查报告和后续自动化 dry-run 结果。
+`docs/reports/` 保存 HarnessVault 的治理报告、索引检查报告、安全检查报告、Skill / Memory / RAG 审查报告、归档报告和后续自动化 dry-run 结果。
 
 报告是治理证据，不是最终事实源。报告中的结论只有经过人工审查并写入正式文档后，才成为 Harness 文档事实的一部分。
 
@@ -55,6 +56,7 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 | `docs/reports/skills/` | [[SkillReports]] | Skill 使用情况、stale、archive、合并候选报告 |
 | `docs/reports/rag/` | [[RAGReports]] | RAG 来源、审查、过期、未审查知识检查报告 |
 | `docs/reports/security/` | [[SecurityReports]] | 上下文安全、插件代码、secrets、外部输出风险检查报告 |
+| `docs/reports/archive/` | [[ReportsArchive]] | closed / archived 历史报告 |
 
 ## 3. 当前报告模板
 
@@ -69,6 +71,7 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 2. 报告建议必须经过人工审查后才能写入正式文档。
 3. 报告中的自动修复候选不得绕过审批。
 4. 报告关闭后可保留为 archived。
+5. archived report 不进入默认上下文。
 
 ## 5. 关联文档
 
@@ -81,3 +84,4 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 - [[SkillReports]]
 - [[RAGReports]]
 - [[SecurityReports]]
+- [[ReportsArchive]]
