@@ -1,0 +1,6 @@
+{
+  "schemaVersion": "v0.1.0",
+  "purpose": "Skill usage sidecar for aggregated, non-sensitive usage metadata. Do not store user knowledge, project facts, raw logs, prompts, or secrets here.",
+  "updatedAt": "2026-06-01 00:00:00.000 +08:00",
+  "skills": []
+}
