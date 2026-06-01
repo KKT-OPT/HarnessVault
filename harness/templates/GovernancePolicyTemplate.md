@@ -1,21 +1,31 @@
 ---
-documentName: docs/governance/<% tp.file.title %>.md
-title: <% tp.file.title %>
+documentName: templates/GovernancePolicyTemplate.md
+templateName: GovernancePolicyTemplate
+templateTarget: docs/governance/<% tp.file.title %>.md
+templateEngine: obsidian-templater
+templatePurpose: 生成 governance policy 文档。
+title: Governance Policy Template
 aliases:
-  - <% tp.file.title %>
+  - GovernancePolicyTemplate
 tags:
   - harness
   - governance
-version: v0.1.0
+  - template
+version: v0.2.0
 createdAt: <% tp.date.now("YYYY-MM-DD HH:mm:ss.SSS Z") %>
 updatedAt: <% tp.date.now("YYYY-MM-DD HH:mm:ss.SSS Z") %>
 status: draft
-type: policy
-purpose:
-scope:
+type: template
+purpose: 提供 governance policy 文档生成模板。
+scope: HarnessVault templates。
 prerequisites:
+  - AGENTS.md
 relatedDocuments:
+  - "[[TemplatesIndex]]"
+  - "[[GovernanceIndex]]"
+  - "[[INDEX]]"
 outputTo:
+  - HarnessVault
 owner: human
 reviewAfter:
 ---
