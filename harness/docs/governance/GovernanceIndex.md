@@ -9,7 +9,7 @@ tags:
   - harness
   - governance
   - index
-version: v0.2.0
+version: v0.3.0
 createdAt: 2026-05-30 00:00:00.000 +08:00
 updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
@@ -22,6 +22,7 @@ relatedDocuments:
   - "[[HarnessEngineering]]"
   - "[[INDEX]]"
   - "[[RuntimeBoundaryPolicy]]"
+  - "[[ReportArchivePolicy]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -48,6 +49,7 @@ Governance Runtime Layer 负责 Harness 文档资产、Skill、Memory、Workflow
 | [[DocumentGovernance]] | draft | 文档新增、更新、拆分、归档和删除规则 |
 | [[KnowledgePromotionPolicy]] | draft | Workflow、Memory、Skill、RAG、Project Facts 之间的晋升规则 |
 | [[CleanupPolicy]] | draft | 文档资产、Memory、Skill、RAG、报告产物的清理和归档规则 |
+| [[ReportArchivePolicy]] | draft | 阶段性治理报告、dry-run 报告和历史报告的关闭、归档和默认上下文排除规则 |
 
 ## 3. 关联文档
 
@@ -55,3 +57,4 @@ Governance Runtime Layer 负责 Harness 文档资产、Skill、Memory、Workflow
 - [[INDEX]]
 - [[Dashboard]]
 - [[RuntimeBoundaryPolicy]]
+- [[ReportArchivePolicy]]
