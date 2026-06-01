@@ -24,6 +24,7 @@ Thumbs.db
 harness/.obsidian/workspace.json
 harness/.obsidian/workspace-mobile.json
 harness/.obsidian/workspaces.json
+harness/.obsidian/graph.json
 
 # Obsidian community plugin runtime code
 # Keep plugin manifests/config when intentionally committed; reinstall plugin code locally via Obsidian.
