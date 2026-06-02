@@ -9,7 +9,7 @@ tags:
   - harness
   - reports
   - index
-version: v0.5.0
+version: v0.6.0
 createdAt: 2026-05-30 00:00:00.000 +08:00
 updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
@@ -28,6 +28,7 @@ relatedDocuments:
   - "[[HarnessIndexDryRunReport]]"
   - "[[FrontmatterPathDryRunReport]]"
   - "[[RealHarnessSelfCheckReport]]"
+  - "[[P12SelfCheckCloseoutReport]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -45,7 +46,8 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 3. broken link 检查报告；
 4. orphan document 检查报告；
 5. frontmatter `documentName` 与实际路径一致性检查报告；
-6. 真实 self-check 输出分类报告。
+6. 真实 self-check 输出分类报告；
+7. self-check closeout 报告。
 
 ## 2. 当前模板与报告
 
@@ -55,6 +57,7 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 | [[HarnessIndexDryRunReport]] | HarnessVault index dry-run 检查报告 |
 | [[FrontmatterPathDryRunReport]] | Frontmatter documentName 与实际路径一致性 dry-run 报告 |
 | [[RealHarnessSelfCheckReport]] | 用户本地真实 dry-run 输出、问题分类和 P11 修复策略报告 |
+| [[P12SelfCheckCloseoutReport]] | P12 对 P11 后剩余 findings 的分类和收口报告 |
 
 ## 3. 命名建议
 
@@ -64,6 +67,7 @@ YYYYMMDD-broken-links.md
 YYYYMMDD-orphan-documents.md
 YYYYMMDD-path-frontmatter-check.md
 YYYYMMDD-real-self-check.md
+YYYYMMDD-self-check-closeout.md
 ```
 
 ## 4. 报告规则
@@ -73,6 +77,7 @@ YYYYMMDD-real-self-check.md
 3. 涉及文档迁移、归档和删除时必须人工确认。
 4. 索引报告关闭后可根据 [[CleanupPolicy]] 归档。
 5. dry-run 报告不得自动修改文档。
+6. 具体运行数字只应写入报告，不应成为长期架构事实。
 
 ## 5. 关联文档
 
@@ -84,3 +89,4 @@ YYYYMMDD-real-self-check.md
 - [[HarnessIndexDryRunReport]]
 - [[FrontmatterPathDryRunReport]]
 - [[RealHarnessSelfCheckReport]]
+- [[P12SelfCheckCloseoutReport]]

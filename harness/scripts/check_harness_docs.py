@@ -52,6 +52,7 @@ EXCLUDED_SUFFIXES = {
     ".pdf",
 }
 EXCLUDED_OBSIDIAN_PLUGIN_PARTS = {"plugins"}
+ALLOWED_TEMPLATE_DIR_TYPES = {"template", "index"}
 
 
 @dataclass(frozen=True)
@@ -74,9 +75,13 @@ def iter_markdown_files(root: Path) -> Iterable[Path]:
         yield path
 
 
-def is_template_file(root: Path, path: Path) -> bool:
+def is_under_templates(root: Path, path: Path) -> bool:
     rel_parts = path.relative_to(root).parts
     return bool(rel_parts and rel_parts[0] == "templates")
+
+
+def is_template_document(root: Path, path: Path, frontmatter: Dict[str, str]) -> bool:
+    return is_under_templates(root, path) and frontmatter.get("type") == "template"
 
 
 def parse_frontmatter(text: str) -> Tuple[Dict[str, str], bool, List[str]]:
@@ -134,7 +139,8 @@ def check_file(root: Path, path: Path, aliases: Dict[str, List[str]]) -> List[Fi
     rel = str(path.relative_to(root)).replace("\\", "/")
     text = path.read_text(encoding="utf-8")
     frontmatter, has_frontmatter, _ = parse_frontmatter(text)
-    template_file = is_template_file(root, path)
+    under_templates = is_under_templates(root, path)
+    template_document = is_template_document(root, path, frontmatter)
 
     def add(severity: str, code: str, message: str) -> None:
         key = (code, message)
@@ -146,7 +152,7 @@ def check_file(root: Path, path: Path, aliases: Dict[str, List[str]]) -> List[Fi
         add("high", "FM-MISSING", "Missing YAML frontmatter.")
         return findings
 
-    required_fields = TEMPLATE_REQUIRED_FIELDS if template_file else REQUIRED_FIELDS
+    required_fields = TEMPLATE_REQUIRED_FIELDS if template_document else REQUIRED_FIELDS
     for field in required_fields:
         if field not in frontmatter:
             add("medium", "FM-FIELD-MISSING", f"Missing frontmatter field: {field}")
@@ -155,10 +161,13 @@ def check_file(root: Path, path: Path, aliases: Dict[str, List[str]]) -> List[Fi
     if document_name and document_name != rel:
         add("medium", "FM-DOCUMENT-NAME-MISMATCH", f"documentName is '{document_name}', actual path is '{rel}'.")
 
-    if template_file and frontmatter.get("type") != "template":
-        add("medium", "TEMPLATE-TYPE-MISMATCH", "templates/** files should use type: template.")
+    if under_templates and frontmatter.get("type") not in ALLOWED_TEMPLATE_DIR_TYPES:
+        add("medium", "TEMPLATE-DIR-TYPE", "templates/** files should normally use type: template or type: index.")
 
     for target in set(WIKILINK_PATTERN.findall(text)):
+        if target == "README":
+            add("low", "WIKI-README-BARE", "Bare [[README]] wikilinks are ambiguous; use a unique alias or plain path text.")
+            continue
         matches = aliases.get(target, [])
         if not matches:
             add("low", "WIKI-UNRESOLVED-CANDIDATE", f"Wikilink target may be unresolved: [[{target}]]")
