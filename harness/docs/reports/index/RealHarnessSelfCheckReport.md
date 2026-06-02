@@ -10,7 +10,7 @@ tags:
   - reports
   - index
   - self-check
-version: v0.1.0
+version: v0.2.0
 createdAt: 2026-06-01 00:00:00.000 +08:00
 updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
@@ -79,7 +79,7 @@ P11 applies the following fixes:
 3. Add `templates/README.md` as [[TemplatesIndex]].
 4. Remove duplicate `docs/project-template/workflow/WorkflowTemplate.md` template body.
 5. Add `docs/project-template/workflow/README.md` as workflow section guide.
-6. Update [[ProjectIndex]] to avoid naked `[[README]]` and duplicate `[[WorkflowTemplate]]` ambiguity.
+6. Update [[ProjectIndex]] to avoid naked README wikilink and duplicate `WorkflowTemplate` ambiguity.
 7. Normalize `templates/**` frontmatter with `documentName` and `templateTarget`.
 8. Make `check_harness_docs.py` template-aware.
 9. De-duplicate repeated wikilink findings per file.
