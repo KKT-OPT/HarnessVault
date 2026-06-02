@@ -20,14 +20,17 @@
 .DS_Store
 Thumbs.db
 
-# Obsidian volatile workspace state
+# Obsidian volatile UI state
+# These files store local workspace/graph layout and are not Harness facts.
 harness/.obsidian/workspace.json
 harness/.obsidian/workspace-mobile.json
 harness/.obsidian/workspaces.json
 harness/.obsidian/graph.json
 
 # Obsidian community plugin runtime code
-# Keep plugin manifests/config when intentionally committed; reinstall plugin code locally via Obsidian.
+# Plugin runtime code is not a Harness fact source and should be reinstalled locally by Obsidian.
+# Lightweight configuration such as manifest.json, data.json, community-plugins.json, core-plugins.json,
+# app.json and appearance.json may be tracked when intentionally reviewed.
 harness/.obsidian/plugins/**/main.js
 harness/.obsidian/plugins/**/styles.css
 harness/.obsidian/plugins/**/obsidian_askpass.sh

@@ -9,7 +9,7 @@ tags:
   - harness
   - reports
   - security
-version: v0.1.0
+version: v0.2.0
 createdAt: 2026-06-01 00:00:00.000 +08:00
 updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
@@ -23,6 +23,8 @@ relatedDocuments:
   - "[[SecurityGovernance]]"
   - "[[ContextLoadingPolicy]]"
   - "[[CleanupPolicy]]"
+  - "[[ObsidianGitBoundaryPolicy]]"
+  - "[[ObsidianGitBoundaryReport]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -33,7 +35,7 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 
 ## 1. 定位
 
-`docs/reports/security/` 用于保存上下文安全、插件代码、secrets、外部输出风险和敏感信息检查报告。
+`docs/reports/security/` 用于保存上下文安全、插件代码、secrets、外部输出风险、敏感信息检查和 Obsidian/Git 边界检查报告。
 
 当前通用 HarnessVault 只建立报告分区规则，不保存真实安全检查结果。
 
@@ -43,18 +45,28 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 2. Secrets exposure check；
 3. External output review；
 4. Obsidian plugin boundary check；
-5. Workspace state risk review。
+5. Workspace state risk review；
+6. Obsidian/Git boundary report。
 
-## 3. 报告规则
+## 3. 当前报告
+
+| 文档 | 用途 |
+|---|---|
+| [[ObsidianGitBoundaryReport]] | P14 Obsidian 与 Git 跟踪边界检查报告 |
+
+## 4. 报告规则
 
 1. 报告是证据，不是事实源。
 2. 报告不得完整复述 secret、token、password、private key。
 3. 安全风险建议必须经过人工审查后才能执行。
 4. 报告关闭后可按 [[CleanupPolicy]] 归档。
+5. Obsidian workspace、graph 和插件运行代码不应进入默认上下文。
 
-## 4. 关联文档
+## 5. 关联文档
 
 - [[ReportsIndex]]
 - [[SecurityGovernance]]
 - [[ContextLoadingPolicy]]
 - [[CleanupPolicy]]
+- [[ObsidianGitBoundaryPolicy]]
+- [[ObsidianGitBoundaryReport]]
