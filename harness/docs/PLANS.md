@@ -9,7 +9,7 @@ tags:
   - harness
   - plan
   - governance
-version: v0.14.0
+version: v0.15.0
 createdAt: 2026-05-29 00:00:00.000 +08:00
 updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
@@ -35,6 +35,7 @@ relatedDocuments:
   - "[[HarnessValidationPlan]]"
   - "[[TemplatesIndex]]"
   - "[[ReportsArchive]]"
+  - "[[ObsidianGitBoundaryPolicy]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -45,13 +46,13 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 
 ## 1. 当前阶段
 
-当前阶段：`P13 - 阶段性治理报告归档收口`
+当前阶段：`P14 - Obsidian 与 Git 跟踪边界收口`
 
-P13 的目标是在 P12 已完成真实 self-check 复测结果收口和 README 链接规则泛化的基础上，关闭并归档 P8-P12 形成的阶段性治理报告，避免阶段性报告继续作为默认上下文或长期事实源。
+P14 的目标是在 P13 已完成阶段性报告归档收口的基础上，确认 Obsidian UI 状态文件、workspace 状态、插件运行代码、轻量配置文件和 Git 跟踪规则之间的边界，防止编辑器状态或插件代码污染 Harness 文档事实源与智能体默认上下文。
 
-P13 不写入真实用户知识，不写入具体项目事实，不导入外部知识正文，不删除历史证据。阶段性报告通过 `docs/reports/archive/` 保留追溯能力，并从默认 reports 索引中移除。
+P14 不写入真实用户知识，不写入具体项目事实，不导入外部知识正文，不引入项目级 RAG 内容，只收口通用 Obsidian/Git 维护规则。
 
-## 2. P0-P12 状态
+## 2. P0-P13 状态
 
 P0：`HarnessVault 基础仓库结构治理`，状态：`completed`。
 
@@ -79,57 +80,46 @@ P11：`模板统一治理、链接歧义收口与真实 self-check 修复`，状
 
 P12：`真实 self-check 复测结果收口与 README 链接规则泛化`，状态：`completed`。
 
-## 3. P12 验收结论
+P13：`阶段性治理报告归档收口`，状态：`completed`。
 
-P12 已满足主要治理目标：
+## 3. P13 验收结论
 
-1. 自检脚本不再把 `templates/README.md` 误判为 `type: template` 文件。
-2. `check_harness_docs.py` 对 `templates/**` 的规则为：`type: template` 才要求模板字段，`type: index` 使用普通必填字段。
-3. README 链接治理规则已泛化：禁止裸 README wikilink，引用 README 时使用唯一 alias 或路径文本。
-4. P12 复测结果分类进入报告，不成为长期架构事实。
-5. 本阶段不大规模重命名子目录 README，避免后续扩展知识库时产生不必要返工。
-6. P12 未写入真实用户知识，未写入具体项目事实。
-
-P12 合并后的最后一个低风险 finding 是 `docs/PLANS.md` 中的裸 README wikilink 描述。P13 已在本文件中修复该遗留问题。
-
-## 4. P13 目标
-
-P13 要完成：
-
-1. 修复 P12 遗留的 `PLANS.md` 裸 README wikilink。
-2. 将 P8-P12 阶段性治理报告归档到 `docs/reports/archive/`。
-3. 从默认 `docs/reports/governance/README.md` 和 `docs/reports/index/README.md` 中移除阶段性报告入口。
-4. 更新 `docs/reports/archive/README.md`，列出已归档报告并声明默认上下文排除规则。
-5. 新增 `docs/reports/archive/20260601-archive-closeout-report.md`，记录 P13 归档收口结果。
-6. 保留历史追溯，不直接删除历史证据。
-7. 保持通用 Harness 架构，不写入用户知识或具体项目事实。
-
-## 5. P13 验收标准
-
-P13 完成标准：
+P13 已满足验收标准：
 
 1. `PLANS.md` 不再包含裸 README wikilink。
 2. P8-P12 阶段性报告已经归档，默认 reports 索引不再推荐这些报告作为当前上下文。
 3. 归档报告保留 `archivedFrom`、`archivedReason`、`status: archived` 等字段。
-4. `ReportsArchive` 能导航已归档报告。
-5. `GovernanceReports` 和 `IndexReports` 只保留模板、当前报告类型说明或后续可用入口，不再列出已归档阶段报告作为当前报告。
+4. [[ReportsArchive]] 能导航已归档报告。
+5. [[GovernanceReports]] 和 [[IndexReports]] 只保留模板、当前报告类型说明或后续可用入口，不再列出已归档阶段报告作为当前报告。
 6. 阶段性报告的结论已被正式 policy、index、PLANS 或脚本吸收。
-7. P13 不写入真实用户知识，不写入具体项目事实。
-8. P13 不修改 `main`，通过 P13 分支和 PR 交付。
+7. P13 未写入真实用户知识，未写入具体项目事实。
+
+## 4. P14 目标
+
+P14 要完成：
+
+1. 新增 [[ObsidianGitBoundaryPolicy]]，定义 Obsidian 配置、UI 状态、插件代码、模板目录和 Git 跟踪边界。
+2. 更新 [[ObsidianSetup]]，使其与 `.gitignore` 策略一致，明确 `graph.json`、`workspace.json`、插件运行代码不作为事实源。
+3. 更新 `.gitignore` 注释，明确允许跟踪和禁止跟踪的 Obsidian 文件类型。
+4. 更新 [[GovernanceIndex]]，将 [[ObsidianGitBoundaryPolicy]] 纳入治理入口。
+5. 更新 [[SecurityReports]]，增加 Obsidian/Git boundary report 类型。
+6. 新增 `docs/reports/security/ObsidianGitBoundaryReport.md`，记录本轮边界检查结论。
+7. 保持通用 Harness 架构，不写入用户知识或具体项目事实。
+
+## 5. P14 验收标准
+
+P14 完成标准：
+
+1. [[ObsidianGitBoundaryPolicy]] 能区分 facts、templates、reports、lightweight config、volatile UI state、plugin runtime code。
+2. [[ObsidianSetup]] 与 `.gitignore` 策略一致，不再把 `graph.json` 描述为推荐提交的轻量配置。
+3. `.gitignore` 明确忽略 workspace、graph、插件运行代码和本地易变状态。
+4. `harness/.obsidian/workspace.json` 与 `harness/.obsidian/graph.json` 不作为事实源，不进入默认上下文。
+5. 插件运行代码不进入默认上下文；插件配置可以在人工确认后保留。
+6. `templates/**` 继续作为唯一模板源，不受 Obsidian workspace 状态影响。
+7. P14 安全报告记录边界检查结论，但不保存真实 secrets、用户知识或具体项目事实。
+8. P14 不修改 `main`，通过 P14 分支和 PR 交付。
 
 ## 6. 后续剩余落地路线
-
-### P14 - Obsidian 与 Git 跟踪边界收口
-
-目标：确认 Obsidian UI 状态文件、workspace 状态和插件边界。
-
-需要完成：
-
-1. 评估 `.obsidian/graph.json` 是否已正确移出 Git tracking；
-2. 确认 `.obsidian/workspace.json` 不作为事实源；
-3. 确认插件运行代码不进入默认上下文；
-4. 梳理剩余 alias 和 Obsidian wikilink 歧义；
-5. 必要时更新 `.gitignore` 和 Obsidian 说明文档。
 
 ### P15 - 通用 Harness 完成态验证
 
@@ -187,7 +177,7 @@ P13 完成标准：
 ## 9. 风险与注意事项
 
 1. 治理报告是证据，不是长期事实源。
-2. 阶段性报告应关闭和归档，不应长期进入默认上下文。
+2. Obsidian workspace、graph 和插件运行代码不是事实源。
 3. 自检脚本只允许 dry-run，不允许自动修改文档。
 4. Project Template 只保留通用占位，不填入具体项目事实。
 5. `templates/**` 是唯一模板源，后续提示词模板也进入该目录。

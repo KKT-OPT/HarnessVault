@@ -9,7 +9,7 @@ tags:
   - harness
   - governance
   - index
-version: v0.3.0
+version: v0.4.0
 createdAt: 2026-05-30 00:00:00.000 +08:00
 updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
@@ -23,6 +23,7 @@ relatedDocuments:
   - "[[INDEX]]"
   - "[[RuntimeBoundaryPolicy]]"
   - "[[ReportArchivePolicy]]"
+  - "[[ObsidianGitBoundaryPolicy]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -33,7 +34,7 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 
 ## 1. 层级定位
 
-Governance Runtime Layer 负责 Harness 文档资产、Skill、Memory、Workflow、RAG、项目模板、runtime 边界和跨层治理的生命周期管理。
+Governance Runtime Layer 负责 Harness 文档资产、Skill、Memory、Workflow、RAG、项目模板、runtime 边界、Obsidian/Git 边界和跨层治理的生命周期管理。
 
 ## 2. 治理文档
 
@@ -50,6 +51,7 @@ Governance Runtime Layer 负责 Harness 文档资产、Skill、Memory、Workflow
 | [[KnowledgePromotionPolicy]] | draft | Workflow、Memory、Skill、RAG、Project Facts 之间的晋升规则 |
 | [[CleanupPolicy]] | draft | 文档资产、Memory、Skill、RAG、报告产物的清理和归档规则 |
 | [[ReportArchivePolicy]] | draft | 阶段性治理报告、dry-run 报告和历史报告的关闭、归档和默认上下文排除规则 |
+| [[ObsidianGitBoundaryPolicy]] | draft | Obsidian 配置、UI 状态、插件代码、模板目录和 Git 跟踪边界规则 |
 
 ## 3. 关联文档
 
@@ -58,3 +60,4 @@ Governance Runtime Layer 负责 Harness 文档资产、Skill、Memory、Workflow
 - [[Dashboard]]
 - [[RuntimeBoundaryPolicy]]
 - [[ReportArchivePolicy]]
+- [[ObsidianGitBoundaryPolicy]]
