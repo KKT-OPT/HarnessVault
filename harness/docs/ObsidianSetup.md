@@ -11,9 +11,9 @@ tags:
   - templater
   - dataview
   - linter
-version: v0.2.0
+version: v0.3.0
 createdAt: 2026-05-30 00:00:00.000 +08:00
-updatedAt: 2026-05-30 00:00:00.000 +08:00
+updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
 type: policy
 purpose: 说明 HarnessVault 中 Obsidian vault、插件、模板和 Git 维护方式。
@@ -26,10 +26,11 @@ relatedDocuments:
   - "[[INDEX]]"
   - "[[PLANS]]"
   - "[[Dashboard]]"
+  - "[[ObsidianGitBoundaryPolicy]]"
 outputTo:
   - HarnessVault
 owner: human
-reviewAfter: 2026-06-30 00:00:00.000 +08:00
+reviewAfter: 2026-07-01 00:00:00.000 +08:00
 ---
 
 # Obsidian 使用配置说明
@@ -147,25 +148,23 @@ JSON 示例代码块
 
 建议禁用自动排序 YAML key、自动重写 timestamp、自动重写 tags / aliases 的规则。
 
-## 9. workspace.json 规则
+## 9. workspace / graph 规则
 
-`harness/.obsidian/workspace.json` 只保存 Obsidian UI 工作区状态，例如：
+以下文件只保存 Obsidian UI 状态，不是 Harness 文档事实源，也不是文档自动更新机制：
 
 ```text
-当前打开文件
-左右侧栏状态
-最近文件
-面板布局
+harness/.obsidian/workspace.json
+harness/.obsidian/workspace-mobile.json
+harness/.obsidian/workspaces.json
+harness/.obsidian/graph.json
 ```
-
-它不是 Harness 文档事实源，也不是文档自动更新机制。
 
 因此：
 
 ```text
-workspace.json 应保留在本地；
-workspace.json 不应提交到 Git；
-workspace.json 不应进入智能体上下文。
+这些文件应保留在本地；
+这些文件不应提交到 Git；
+这些文件不应进入智能体默认上下文。
 ```
 
 ## 10. 插件运行代码规则
@@ -178,21 +177,39 @@ harness/.obsidian/plugins/**/styles.css
 harness/.obsidian/plugins/**/obsidian_askpass.sh
 ```
 
-可以保留轻量配置，例如：
+可以在人工确认后保留轻量配置，例如：
 
 ```text
-manifest.json
-data.json
-community-plugins.json
-core-plugins.json
-app.json
-appearance.json
-graph.json
+harness/.obsidian/app.json
+harness/.obsidian/appearance.json
+harness/.obsidian/community-plugins.json
+harness/.obsidian/core-plugins.json
+harness/.obsidian/plugins/**/manifest.json
+harness/.obsidian/plugins/**/data.json
 ```
 
-## 11. 关联文档
+轻量配置不是 Harness facts，只是编辑体验配置。
+
+## 11. 智能体上下文规则
+
+智能体默认读取：
+
+1. `AGENTS.md`；
+2. `docs/INDEX.md`；
+3. `docs/PLANS.md`；
+4. 任务相关的 Harness Markdown 文档。
+
+智能体默认不得读取：
+
+1. workspace / graph 状态；
+2. 插件运行代码；
+3. IDE 本地状态；
+4. archived reports。
+
+## 12. 关联文档
 
 - [[HarnessEngineering]]
 - [[INDEX]]
 - [[PLANS]]
 - [[Dashboard]]
+- [[ObsidianGitBoundaryPolicy]]
