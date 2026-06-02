@@ -9,7 +9,7 @@ tags:
   - harness
   - plan
   - governance
-version: v0.12.0
+version: v0.13.0
 createdAt: 2026-05-29 00:00:00.000 +08:00
 updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
@@ -33,6 +33,7 @@ relatedDocuments:
   - "[[KnowledgeIntakePolicy]]"
   - "[[ReportArchivePolicy]]"
   - "[[HarnessValidationPlan]]"
+  - "[[TemplatesIndex]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -43,13 +44,13 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 
 ## 1. 当前阶段
 
-当前阶段：`P11 - 模板统一治理、链接歧义收口与真实 self-check 修复`
+当前阶段：`P12 - 真实 self-check 复测结果收口与 README 链接规则泛化`
 
-P11 的目标是在 P10 已完成完成路线图和架构验证方案的基础上，处理真实 `check_harness_docs.py` dry-run 输出中的低风险问题，并根据用户确认的原则统一模板源：所有可复制模板、Templater 模板、提示词模板和后续模板资产统一放入 `templates/**`，其他目录只保留模板说明、索引、分区规则或事实源，不再保存重复模板正文。
+P12 的目标是在 P11 已完成模板统一治理和主要链接歧义收口的基础上，处理用户本地复测后剩余 findings，并将 README 链接治理和 `templates/**` 检查规则泛化，避免因后续增加、删除或重命名知识库、报告、项目模板分区而产生大量返工。
 
-P11 不写入真实用户知识，不写入具体项目事实，不导入外部知识正文，不做自动删除；所有结构性删除或迁移通过分支和 PR 完成。
+P12 不写入真实用户知识，不写入具体项目事实，不导入外部知识正文，不大规模重命名目录文件；本阶段优先通过唯一 alias、路径说明和脚本规则泛化消除当前误报与歧义。
 
-## 2. P0-P10 状态
+## 2. P0-P11 状态
 
 P0：`HarnessVault 基础仓库结构治理`，状态：`completed`。
 
@@ -73,104 +74,76 @@ P9：`Harness 自检工具与报告目录补齐`，状态：`completed`。
 
 P10：`Harness 完成路线图、阶段报告归档与架构验证`，状态：`completed`。
 
-## 3. P10 验收结论
+P11：`模板统一治理、链接歧义收口与真实 self-check 修复`，状态：`completed`。
 
-P10 已满足验收标准：
+## 3. P11 验收结论
 
-1. [[ReportArchivePolicy]] 已说明阶段性治理报告何时关闭、何时归档、何时不应作为默认上下文。
-2. `docs/reports/archive/README.md` 已定义报告归档区规则。
-3. [[HarnessValidationPlan]] 已定义通用 Harness 架构完成后的验证方法。
-4. [[HarnessInteractionSimulation]] 已模拟智能体从用户 prompt 出发，通过 `AGENTS.md`、[[INDEX]]、[[PLANS]]、RAG、Project Template、Verification、Observability、Reports 完成一次任务闭环。
-5. [[PLANS]] 已列出通用 Harness 架构剩余落地步骤。
-6. P10 未写入真实用户知识，未写入具体项目事实。
+P11 已满足验收标准：
 
-## 4. P11 输入问题
+1. `AGENTS.md` 和 `README.md` 已包含 frontmatter，并保持 `AGENTS.md` 作为智能体优先入口。
+2. `templates/**` 已定义为唯一模板源。
+3. `docs/project-template/**` 不再保存重复 workflow 模板正文。
+4. [[ProjectIndex]] 不再使用裸 `README` wikilink。
+5. `WorkflowTemplate` 的重复模板源已收口。
+6. `check_harness_docs.py` 已支持 template-aware 检查和 finding 去重。
+7. [[RealHarnessSelfCheckReport]] 已记录 P11 前真实 dry-run 输出分类和修复策略。
+8. P11 未写入真实用户知识，未写入具体项目事实。
 
-用户本地运行：
+## 4. P12 输入问题
 
-```bash
-python harness/scripts/check_harness_docs.py --root harness --format text
-```
+用户在 P11 合并后本地复测 `check_harness_docs.py`，剩余 findings 可归为两类：
 
-得到：
+1. 裸 README wikilink 导致的候选歧义；
+2. `templates/README.md` 作为模板索引被脚本误判为模板文件。
 
-```text
-Markdown files checked: 76
-Findings: 32
-No files were modified.
-```
+P12 不把本次复测数字写成长期架构事实。具体运行结果只进入 self-check report；[[PLANS]] 只保存阶段目标、验收标准和通用治理规则。
 
-问题集中在：
+## 5. P12 设计原则
 
-1. `harness/AGENTS.md` 和 `harness/README.md` 缺少 frontmatter；
-2. `[[README]]` 裸链接导致大量 README 候选歧义；
-3. `[[WorkflowTemplate]]` 同时命中 `docs/project-template/workflow/WorkflowTemplate.md` 和 `templates/WorkflowTemplate.md`；
-4. `templates/**` 中的 Templater 生成目标路径被普通文档规则误判为 `documentName` mismatch；
-5. `templates/SkillTemplate.md` 缺少基础 frontmatter 字段。
+P12 采用以下原则：
 
-## 5. P11 设计原则
+1. 根目录 `README.md` 作为 vault 说明文档保留。
+2. 子目录 README 可以继续作为目录说明文件存在，但必须具备唯一 alias，并避免使用裸 `README` wikilink。
+3. 后续如果某个子目录 README 长期造成 Obsidian 链接歧义，可再按分区改名，例如 `REPORTS_README.md`、`RAG_README.md`，但 P12 不做大规模重命名。
+4. `templates/**` 可以包含模板文件和模板索引；`type: template` 才要求 `templateName`、`templateTarget`、`templateEngine`、`templatePurpose`。
+5. `type: index` 的 `templates/README.md` 应按普通 index 检查，而不是按模板文件检查。
+6. 禁止使用裸 `[[README]]`；需要引用 README 时，使用唯一 alias 或路径文本。
+7. 自检脚本继续保持 dry-run，只读，不自动修改文档。
 
-P11 采用以下原则：
+## 6. P12 目标
 
-1. `templates/**` 是唯一模板源；
-2. `docs/project-template/**` 只保存项目模板说明、分区索引和实例化规则，不保存可复制模板正文；
-3. 子目录 README 必须链接到对应层级 index；
-4. 所有层级 index 必须链接到 [[INDEX]]；
-5. `AGENTS.md` 必须作为智能体优先入口，任何形式的提示词或模板都应能指向 `AGENTS.md`；
-6. 自检脚本对 `templates/**` 采用 template-aware 规则，区分模板源文件路径和生成目标路径；
-7. P11 只修复低风险机械问题，不修改语义内容，不写入用户知识或具体项目事实。
+P12 要完成：
 
-## 6. P11 目标
+1. 修复 [[PLANS]] 和 [[RealHarnessSelfCheckReport]] 中剩余的裸 README wikilink 描述。
+2. 更新 `check_harness_docs.py`，使 `templates/**` 下的 index 文档不再被误判为 template。
+3. 新增或更新 README 链接治理规则，明确裸 README wikilink 禁止使用。
+4. 新增 `docs/reports/index/P12SelfCheckCloseoutReport.md`，记录 P12 复测结果分类和修复策略。
+5. 更新 reports index，挂接 P12 self-check closeout report。
+6. 保持通用 Harness 架构，不写死具体知识库扩展或具体项目事实。
 
-P11 要完成：
+## 7. P12 验收标准
 
-1. 为 `harness/AGENTS.md` 和 `harness/README.md` 补齐 frontmatter；
-2. 新增或更新 `templates/README.md`，定义统一模板源规则；
-3. 将项目 workflow 可复制模板统一到 `templates/WorkflowTemplate.md`；
-4. 用 `docs/project-template/workflow/README.md` 替代重复的 `docs/project-template/workflow/WorkflowTemplate.md`；
-5. 修复 `[[README]]` 和 `[[WorkflowTemplate]]` 的主要链接歧义；
-6. 更新 [[ProjectIndex]]，明确 project-template 分区文档与 `templates/**` 的关系；
-7. 增强 `check_harness_docs.py` 的 template-aware 检查能力和 finding 去重；
-8. 补齐 `templates/SkillTemplate.md` 必要 frontmatter；
-9. 新增 `docs/reports/index/RealHarnessSelfCheckReport.md`，记录本轮真实 dry-run 输出分类和修复策略。
+P12 完成标准：
 
-## 7. P11 验收标准
-
-P11 完成标准：
-
-1. `harness/AGENTS.md` 和 `harness/README.md` 已包含 frontmatter，并继续保持入口优先级。
-2. [[ProjectIndex]] 不再使用裸 `[[README]]` 链接。
-3. `[[WorkflowTemplate]]` 不再同时命中 project-template 和 `templates/**` 两个模板文件。
-4. `templates/**` 被定义为唯一模板源，后续提示词模板也应进入 `templates/**`。
-5. `docs/project-template/**` 不再保存重复模板正文，只保存模板说明、索引、分区规则和实例化规则。
-6. `check_harness_docs.py` 仍然只做 dry-run，不自动修改文件。
-7. `check_harness_docs.py` 能区分普通文档与 `templates/**` 源模板。
-8. `templates/SkillTemplate.md` frontmatter 缺失已修复。
-9. `RealHarnessSelfCheckReport.md` 已记录用户本地 dry-run 输出、问题分类、修复策略和剩余人工确认项。
-10. 本阶段不写入真实用户知识，不写入具体项目事实。
-11. 本阶段不修改 `main`，通过 P11 分支和 PR 交付。
+1. 自检脚本不再把 `templates/README.md` 误判为 `type: template` 文件。
+2. `check_harness_docs.py` 对 `templates/**` 的规则为：`type: template` 才要求模板字段，`type: index` 使用普通必填字段。
+3. `PLANS.md` 不再包含裸 `README` wikilink。
+4. `RealHarnessSelfCheckReport.md` 不再包含裸 `README` wikilink。
+5. 新增或更新的 README 链接治理规则不依赖当前固定目录数量。
+6. P12 复测结果分类进入 report，不成为长期架构事实。
+7. 本阶段不大规模重命名子目录 README，避免后续扩展知识库时产生不必要返工。
+8. 本阶段不写入真实用户知识，不写入具体项目事实。
+9. 本阶段不修改 `main`，通过 P12 分支和 PR 交付。
 
 ## 8. 后续剩余落地路线
 
-### P12 - 执行 P11 后真实脚本复测与剩余 finding 收口
-
-目标：在用户本地重新运行脚本，确认 P11 修复效果。
-
-需要完成：
-
-1. 用户在本地运行 `python harness/scripts/check_harness_docs.py --root harness --format text`；
-2. 将新输出保存为新的 self-check report；
-3. 判断剩余 findings 是否为 false positive、模板例外、脚本能力缺口或真实问题；
-4. 修复已确认的低风险问题；
-5. 保持 no silent mutation。
-
 ### P13 - 阶段性治理报告归档收口
 
-目标：处理 P8-P11 形成的阶段性报告资产。
+目标：处理 P8-P12 形成的阶段性报告资产。
 
 需要完成：
 
-1. 审查 `HarnessArchitectureAssessment.md`、`HarnessIndexDryRunReport.md`、`FrontmatterPathDryRunReport.md`、`RealHarnessSelfCheckReport.md`；
+1. 审查阶段性 self-check、dry-run、architecture assessment 报告；
 2. 将已经被 policy / index / PLANS 吸收的结论标记为 closed；
 3. 按 [[ReportArchivePolicy]] 归档阶段性报告；
 4. 确保归档报告不进入默认上下文；
