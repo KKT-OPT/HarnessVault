@@ -9,7 +9,7 @@ tags:
   - harness
   - reports
   - archive
-version: v0.1.0
+version: v0.2.0
 createdAt: 2026-06-01 00:00:00.000 +08:00
 updatedAt: 2026-06-01 00:00:00.000 +08:00
 status: draft
@@ -22,6 +22,12 @@ relatedDocuments:
   - "[[ReportsIndex]]"
   - "[[ReportArchivePolicy]]"
   - "[[CleanupPolicy]]"
+  - "[[ArchivedHarnessArchitectureAssessment]]"
+  - "[[ArchivedHarnessIndexDryRunReport]]"
+  - "[[ArchivedFrontmatterPathDryRunReport]]"
+  - "[[ArchivedRealHarnessSelfCheckReport]]"
+  - "[[ArchivedP12SelfCheckCloseoutReport]]"
+  - "[[P13ArchiveCloseoutReport]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -46,19 +52,31 @@ Archive 报告是历史证据，不是当前事实源，不应进入智能体默
 4. 结论已被正式文档吸收、拒绝或延期；
 5. 不包含 secret 或未脱敏日志。
 
-## 3. 命名建议
+## 3. 当前归档报告
+
+| 归档报告 | 来源 | 归档原因 |
+|---|---|---|
+| [[ArchivedHarnessArchitectureAssessment]] | `docs/reports/governance/HarnessArchitectureAssessment.md` | P8 架构评估结论已被后续 PLANS、索引和治理策略吸收 |
+| [[ArchivedHarnessIndexDryRunReport]] | `docs/reports/index/HarnessIndexDryRunReport.md` | P8 结构性 dry-run 已被真实 self-check 流程替代 |
+| [[ArchivedFrontmatterPathDryRunReport]] | `docs/reports/index/FrontmatterPathDryRunReport.md` | P9 设计型 dry-run 已被 P11/P12 真实 self-check 和脚本规则替代 |
+| [[ArchivedRealHarnessSelfCheckReport]] | `docs/reports/index/RealHarnessSelfCheckReport.md` | P11 结论已被 P12 README 治理和模板规则吸收 |
+| [[ArchivedP12SelfCheckCloseoutReport]] | `docs/reports/index/P12SelfCheckCloseoutReport.md` | P12 结论已被 PLANS 和 self-check 脚本规则吸收 |
+| [[P13ArchiveCloseoutReport]] | P13 归档收口 | 记录本轮归档收口结果 |
+
+## 4. 命名建议
 
 ```text
 YYYYMMDD-archived-<report-name>.md
 ```
 
-## 4. 禁止事项
+## 5. 禁止事项
 
 1. 禁止把 archive 报告作为默认上下文。
 2. 禁止直接删除仍有追溯价值的报告。
 3. 禁止把 archive 报告中的旧结论当作当前事实。
+4. 禁止从 archived report 反向污染 active policy 或 active index。
 
-## 5. 关联文档
+## 6. 关联文档
 
 - [[ReportsIndex]]
 - [[ReportArchivePolicy]]
