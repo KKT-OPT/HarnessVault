@@ -9,9 +9,9 @@ tags:
   - harness
   - templates
   - index
-version: v0.1.0
+version: v0.2.0
 createdAt: 2026-06-01 00:00:00.000 +08:00
-updatedAt: 2026-06-01 00:00:00.000 +08:00
+updatedAt: 2026-06-02 00:00:00.000 +08:00
 status: draft
 type: index
 purpose: 索引 HarnessVault 的统一模板源目录。
@@ -23,6 +23,9 @@ relatedDocuments:
   - "[[INDEX]]"
   - "[[PLANS]]"
   - "[[ProjectIndex]]"
+  - "[[ComplexTaskPromptTemplate]]"
+  - "[[RawKnowledgeMaterialTemplate]]"
+  - "[[EffectiveKnowledgeTemplate]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -35,7 +38,7 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 
 `templates/**` 是 HarnessVault 的唯一模板源目录。
 
-所有可复制模板、Obsidian / Templater 模板、文档模板、workflow 模板、policy 模板、report 模板、memory 模板、skill 模板和后续 prompt 模板，都应统一放在本目录下。
+所有可复制模板、Obsidian / Templater 模板、文档模板、workflow 模板、policy 模板、report 模板、memory 模板、skill 模板和 prompt 模板，都应统一放在本目录下。
 
 其他目录可以说明如何使用模板，但不应保留重复的可复制模板正文。
 
@@ -48,6 +51,9 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 | `ReportTemplate.md` | 生成治理或索引报告 |
 | `SkillTemplate.md` | 生成 Skill 文档 |
 | `WorkflowTemplate.md` | 生成项目 workflow 文档 |
+| [[ComplexTaskPromptTemplate]] | 生成复杂任务 prompt |
+| [[RawKnowledgeMaterialTemplate]] | 生成原始资料层候选文档 |
+| [[EffectiveKnowledgeTemplate]] | 生成审查后的有效知识库文档 |
 
 ## 3. 模板使用入口
 
@@ -82,3 +88,6 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 - [[INDEX]]
 - [[PLANS]]
 - [[ProjectIndex]]
+- [[ComplexTaskPromptTemplate]]
+- [[RawKnowledgeMaterialTemplate]]
+- [[EffectiveKnowledgeTemplate]]

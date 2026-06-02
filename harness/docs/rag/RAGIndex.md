@@ -9,12 +9,12 @@ tags:
   - harness
   - rag
   - index
-version: v0.5.0
+version: v0.6.0
 createdAt: 2026-05-30 00:00:00.000 +08:00
-updatedAt: 2026-06-01 00:00:00.000 +08:00
+updatedAt: 2026-06-02 00:00:00.000 +08:00
 status: draft
 type: index
-purpose: 索引 HarnessVault 的 RAG 知识库文档、知识引入规则和候选区。
+purpose: 索引 HarnessVault 的 RAG 知识库文档、知识引入规则、知识库构建流程和候选区。
 scope: HarnessVault RAG。
 prerequisites:
   - docs/HarnessEngineering.md
@@ -23,8 +23,11 @@ relatedDocuments:
   - "[[KnowledgeBasePolicy]]"
   - "[[KnowledgePromotionPolicy]]"
   - "[[KnowledgeIntakePolicy]]"
+  - "[[KnowledgeBaseConstructionWorkflow]]"
   - "[[KnowledgeIntake]]"
   - "[[KnowledgeIntakeTemplate]]"
+  - "[[RawKnowledgeMaterialTemplate]]"
+  - "[[EffectiveKnowledgeTemplate]]"
   - "[[RAGStandard]]"
   - "[[RAGDomain]]"
   - "[[INDEX]]"
@@ -50,6 +53,7 @@ RAG 不保存任务历史，不直接保存一次性 workflow，不替代 Projec
 | [[KnowledgeBasePolicy]] | draft | 定义 RAG 知识库的来源、准入、审查、更新和只读规则 |
 | [[KnowledgePromotionPolicy]] | draft | 定义 Workflow / Memory / Skill / RAG / Project Facts 之间的晋升路径 |
 | [[KnowledgeIntakePolicy]] | draft | 定义用户知识、外部资料、领域知识和候选知识进入 Harness 的通用引入路径 |
+| [[KnowledgeBaseConstructionWorkflow]] | draft | 定义 raw material、semantic enrichment、effective knowledge 和 promotion 的构建流程 |
 
 ## 3. 当前知识库分区
 
@@ -59,12 +63,14 @@ RAG 不保存任务历史，不直接保存一次性 workflow，不替代 Projec
 | [[RAGStandard]] | draft | 通用规范知识分区，当前不保存真实规范知识正文 |
 | [[RAGDomain]] | draft | 领域知识分区，当前不保存真实领域知识正文 |
 
-## 4. Intake 文档
+## 4. Intake 与知识构建模板
 
 | 文档 | 状态 | 用途 |
 |---|---|---|
 | [[KnowledgeIntake]] | draft | 知识暂存区规则 |
 | [[KnowledgeIntakeTemplate]] | draft | 知识引入候选模板 |
+| [[RawKnowledgeMaterialTemplate]] | draft | 原始资料层候选模板 |
+| [[EffectiveKnowledgeTemplate]] | draft | 审查后的有效知识文档模板 |
 
 ## 5. RAG 准入原则
 
@@ -94,7 +100,10 @@ RAG 文档必须满足：
 - [[KnowledgeBasePolicy]]
 - [[KnowledgePromotionPolicy]]
 - [[KnowledgeIntakePolicy]]
+- [[KnowledgeBaseConstructionWorkflow]]
 - [[KnowledgeIntake]]
 - [[KnowledgeIntakeTemplate]]
+- [[RawKnowledgeMaterialTemplate]]
+- [[EffectiveKnowledgeTemplate]]
 - [[RAGStandard]]
 - [[RAGDomain]]

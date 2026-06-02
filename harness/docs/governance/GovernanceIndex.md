@@ -9,9 +9,9 @@ tags:
   - harness
   - governance
   - index
-version: v0.4.0
+version: v0.5.0
 createdAt: 2026-05-30 00:00:00.000 +08:00
-updatedAt: 2026-06-01 00:00:00.000 +08:00
+updatedAt: 2026-06-02 00:00:00.000 +08:00
 status: draft
 type: index
 purpose: 索引 Harness Governance Runtime Layer 的治理文档。
@@ -24,6 +24,7 @@ relatedDocuments:
   - "[[RuntimeBoundaryPolicy]]"
   - "[[ReportArchivePolicy]]"
   - "[[ObsidianGitBoundaryPolicy]]"
+  - "[[DocumentAudiencePolicy]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -34,7 +35,7 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 
 ## 1. 层级定位
 
-Governance Runtime Layer 负责 Harness 文档资产、Skill、Memory、Workflow、RAG、项目模板、runtime 边界、Obsidian/Git 边界和跨层治理的生命周期管理。
+Governance Runtime Layer 负责 Harness 文档资产、Skill、Memory、Workflow、RAG、项目模板、runtime 边界、Obsidian/Git 边界、文档受众边界和跨层治理的生命周期管理。
 
 ## 2. 治理文档
 
@@ -52,6 +53,7 @@ Governance Runtime Layer 负责 Harness 文档资产、Skill、Memory、Workflow
 | [[CleanupPolicy]] | draft | 文档资产、Memory、Skill、RAG、报告产物的清理和归档规则 |
 | [[ReportArchivePolicy]] | draft | 阶段性治理报告、dry-run 报告和历史报告的关闭、归档和默认上下文排除规则 |
 | [[ObsidianGitBoundaryPolicy]] | draft | Obsidian 配置、UI 状态、插件代码、模板目录和 Git 跟踪边界规则 |
+| [[DocumentAudiencePolicy]] | draft | Harness 文档面向智能体、人类和机器检查的受众分类与格式策略 |
 
 ## 3. 关联文档
 
@@ -61,3 +63,4 @@ Governance Runtime Layer 负责 Harness 文档资产、Skill、Memory、Workflow
 - [[RuntimeBoundaryPolicy]]
 - [[ReportArchivePolicy]]
 - [[ObsidianGitBoundaryPolicy]]
+- [[DocumentAudiencePolicy]]
