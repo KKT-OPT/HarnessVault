@@ -9,9 +9,9 @@ tags:
   - harness
   - plan
   - governance
-version: v0.15.0
+version: v0.16.0
 createdAt: 2026-05-29 00:00:00.000 +08:00
-updatedAt: 2026-06-01 00:00:00.000 +08:00
+updatedAt: 2026-06-02 00:00:00.000 +08:00
 status: draft
 type: plan
 purpose: 记录 HarnessVault 当前阶段目标、验收标准、剩余落地路线和验证路线。
@@ -29,13 +29,11 @@ relatedDocuments:
   - "[[ReportsIndex]]"
   - "[[ObservabilityIndex]]"
   - "[[VerificationIndex]]"
-  - "[[Dashboard]]"
-  - "[[KnowledgeIntakePolicy]]"
-  - "[[ReportArchivePolicy]]"
-  - "[[HarnessValidationPlan]]"
   - "[[TemplatesIndex]]"
-  - "[[ReportsArchive]]"
-  - "[[ObsidianGitBoundaryPolicy]]"
+  - "[[HarnessDesignAlignmentReport]]"
+  - "[[DocumentAudiencePolicy]]"
+  - "[[KnowledgeBaseConstructionWorkflow]]"
+  - "[[ComplexTaskPromptTemplate]]"
 outputTo:
   - HarnessVault
 owner: human
@@ -46,78 +44,53 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 
 ## 1. 当前阶段
 
-当前阶段：`P14 - Obsidian 与 Git 跟踪边界收口`
+当前阶段：`P15-pre - 设计文档同步、文档受众分类、知识库构建路径与 Prompt 模板收口`
 
-P14 的目标是在 P13 已完成阶段性报告归档收口的基础上，确认 Obsidian UI 状态文件、workspace 状态、插件运行代码、轻量配置文件和 Git 跟踪规则之间的边界，防止编辑器状态或插件代码污染 Harness 文档事实源与智能体默认上下文。
+P15-pre 是进入 P15 通用 Harness 完成态验证之前的前置收口阶段。目标不是执行验证，而是先确认设计文档与当前仓库实现一致，明确哪些文档面向智能体读取、哪些面向人类阅读和补充，补齐通用知识库构建路径，并增加复杂任务 Prompt 模板。
 
-P14 不写入真实用户知识，不写入具体项目事实，不导入外部知识正文，不引入项目级 RAG 内容，只收口通用 Obsidian/Git 维护规则。
+P15-pre 不写入真实用户知识，不写入具体项目事实，不导入外部知识正文，不创建项目级 RAG 内容。
 
-## 2. P0-P13 状态
+## 2. P0-P14 状态
 
-P0：`HarnessVault 基础仓库结构治理`，状态：`completed`。
+P0-P14 均已完成；其中 P14 已完成 Obsidian 与 Git 跟踪边界治理。
 
-P1：`HarnessVault 计划与索引治理收口`，状态：`completed`。
+## 3. P14 验收结论
 
-P2：`核心治理规则实质化`，状态：`completed`。
+P14 已满足验收标准：
 
-P3：`Project Template 最小实例化能力`，状态：`completed`。
-
-P4：`Project Template 扩展分区占位与 RAG 最小治理`，状态：`completed`。
-
-P5：`Harness 最小治理报告与检查清单`，状态：`completed`。
-
-P6：`Runtime Boundary 与 Observability / Verification 最小闭环`，状态：`completed`。
-
-P7：`Skill / Memory 最小资产骨架`，状态：`completed`。
-
-P8：`Harness 自检与知识引入框架`，状态：`completed`。
-
-P9：`Harness 自检工具与报告目录补齐`，状态：`completed`。
-
-P10：`Harness 完成路线图、阶段报告归档与架构验证`，状态：`completed`。
-
-P11：`模板统一治理、链接歧义收口与真实 self-check 修复`，状态：`completed`。
-
-P12：`真实 self-check 复测结果收口与 README 链接规则泛化`，状态：`completed`。
-
-P13：`阶段性治理报告归档收口`，状态：`completed`。
-
-## 3. P13 验收结论
-
-P13 已满足验收标准：
-
-1. `PLANS.md` 不再包含裸 README wikilink。
-2. P8-P12 阶段性报告已经归档，默认 reports 索引不再推荐这些报告作为当前上下文。
-3. 归档报告保留 `archivedFrom`、`archivedReason`、`status: archived` 等字段。
-4. [[ReportsArchive]] 能导航已归档报告。
-5. [[GovernanceReports]] 和 [[IndexReports]] 只保留模板、当前报告类型说明或后续可用入口，不再列出已归档阶段报告作为当前报告。
-6. 阶段性报告的结论已被正式 policy、index、PLANS 或脚本吸收。
-7. P13 未写入真实用户知识，未写入具体项目事实。
-
-## 4. P14 目标
-
-P14 要完成：
-
-1. 新增 [[ObsidianGitBoundaryPolicy]]，定义 Obsidian 配置、UI 状态、插件代码、模板目录和 Git 跟踪边界。
-2. 更新 [[ObsidianSetup]]，使其与 `.gitignore` 策略一致，明确 `graph.json`、`workspace.json`、插件运行代码不作为事实源。
-3. 更新 `.gitignore` 注释，明确允许跟踪和禁止跟踪的 Obsidian 文件类型。
-4. 更新 [[GovernanceIndex]]，将 [[ObsidianGitBoundaryPolicy]] 纳入治理入口。
-5. 更新 [[SecurityReports]]，增加 Obsidian/Git boundary report 类型。
-6. 新增 `docs/reports/security/ObsidianGitBoundaryReport.md`，记录本轮边界检查结论。
-7. 保持通用 Harness 架构，不写入用户知识或具体项目事实。
-
-## 5. P14 验收标准
-
-P14 完成标准：
-
-1. [[ObsidianGitBoundaryPolicy]] 能区分 facts、templates、reports、lightweight config、volatile UI state、plugin runtime code。
+1. [[ObsidianGitBoundaryPolicy]] 已区分 facts、templates、reports、lightweight config、volatile UI state、plugin runtime code。
 2. [[ObsidianSetup]] 与 `.gitignore` 策略一致，不再把 `graph.json` 描述为推荐提交的轻量配置。
-3. `.gitignore` 明确忽略 workspace、graph、插件运行代码和本地易变状态。
+3. `.gitignore` 已明确忽略 workspace、graph、插件运行代码和本地易变状态。
 4. `harness/.obsidian/workspace.json` 与 `harness/.obsidian/graph.json` 不作为事实源，不进入默认上下文。
 5. 插件运行代码不进入默认上下文；插件配置可以在人工确认后保留。
 6. `templates/**` 继续作为唯一模板源，不受 Obsidian workspace 状态影响。
-7. P14 安全报告记录边界检查结论，但不保存真实 secrets、用户知识或具体项目事实。
-8. P14 不修改 `main`，通过 P14 分支和 PR 交付。
+7. P14 安全报告记录边界检查结论，未保存真实 secrets、用户知识或具体项目事实。
+
+## 4. P15-pre 目标
+
+P15-pre 要完成：
+
+1. 新增 [[HarnessDesignAlignmentReport]]，交叉验证 [[HarnessEngineering]] 与当前 main 架构实现。
+2. 新增 [[DocumentAudiencePolicy]]，区分 agent-readable、human-readable、hybrid、machine-checkable 文档。
+3. 新增 [[KnowledgeBaseConstructionWorkflow]]，定义原始资料层、语义增强层、有效知识层和晋升流程。
+4. 新增知识库模板：`RawKnowledgeMaterialTemplate.md` 与 `EffectiveKnowledgeTemplate.md`。
+5. 新增 [[ComplexTaskPromptTemplate]]，作为复杂任务提示词模板。
+6. 更新 [[PromptPolicy]]、[[AgentIndex]]、[[RAGIndex]]、[[TemplatesIndex]] 和 [[GovernanceIndex]]。
+7. 明确 P15 才进入完成态验证，P15-pre 只做验证前置收口。
+
+## 5. P15-pre 验收标准
+
+P15-pre 完成标准：
+
+1. [[HarnessDesignAlignmentReport]] 列出：已落地但设计文档需更新的内容、设计文档有价值但尚未落地的内容、建议暂不落地的内容。
+2. [[DocumentAudiencePolicy]] 能说明哪些文档应优先给智能体读取，哪些文档主要由人类阅读、补充和审批。
+3. 文档受众策略不要求把所有 Markdown 改成 XML/JSON；只对 prompt、trace、report、knowledge card 等结构化输入采用更强结构。
+4. [[KnowledgeBaseConstructionWorkflow]] 能定义 raw material、semantic enrichment、effective knowledge、review/promotion 的通用流程。
+5. 知识库模板只提供通用结构，不包含真实知识正文。
+6. [[ComplexTaskPromptTemplate]] 使用 XML 标签隔离 final goal、previous context、feedback、task、inspection scope、constraints、acceptance criteria 和 output format。
+7. 更新后的索引能从 `AGENTS.md` → [[INDEX]] → 对应分区 index 找到新增文档和模板。
+8. P15-pre 不写入真实用户知识，不写入具体项目事实。
+9. P15-pre 不修改 `main`，通过分支和 PR 交付。
 
 ## 6. 后续剩余落地路线
 
@@ -152,12 +125,13 @@ P14 完成标准：
 
 1. 具体项目需求、架构、仓库、分支、接口、数据、测试和 ADR；
 2. 具体项目编程规范、代码风格、审查规则和测试规则；
-3. 真实领域知识、标准资料、论文、网页资料、NotebookLM 输出；
-4. 用户长期偏好、组织内部约束和项目长期决策；
-5. 可复用但需要真实任务验证的 Skill；
-6. 真实 dry-run、真实验证、真实失败归因和真实回归报告。
+3. 真实原始资料、标准资料、论文、网页资料、NotebookLM 输出；
+4. 用户对原始资料的语义增强、关键词、术语解释和适用范围判断；
+5. 用户长期偏好、组织内部约束和项目长期决策；
+6. 可复用但需要真实任务验证的 Skill；
+7. 真实 dry-run、真实验证、真实失败归因和真实回归报告。
 
-这些内容应通过 [[KnowledgeIntakePolicy]]、[[ProjectIndex]]、[[MemoryPolicy]]、[[SkillPolicy]] 和 [[KnowledgePromotionPolicy]] 引入，而不是直接写入通用模板。
+这些内容应通过 [[KnowledgeIntakePolicy]]、[[KnowledgeBaseConstructionWorkflow]]、[[ProjectIndex]]、[[MemoryPolicy]]、[[SkillPolicy]] 和 [[KnowledgePromotionPolicy]] 引入，而不是直接写入通用模板。
 
 ## 8. 完成态判断
 
@@ -167,19 +141,9 @@ P14 完成标准：
 2. 模板统一：所有可复制模板集中在 `templates/**`；
 3. 分层完整：Governance、Agent、RAG、Project Template、Reports、Observability、Verification、Scripts、Templates 均有入口；
 4. 生命周期完整：draft、active、review、stale、deprecated、archived 有规则；
-5. 知识引入完整：intake、candidate、review、promotion、target asset 有规则；
+5. 知识引入完整：raw、intake、candidate、review、promotion、target asset 有规则；
 6. 验证完整：readiness、trace、failure attribution、regression、acceptance 有规则；
 7. 报告完整：治理、索引、Memory、Skill、RAG、安全、归档报告有规则；
 8. 自检可运行：至少有 dry-run 脚本和报告模板；
 9. 模拟可通过：智能体能按 [[HarnessInteractionSimulation]] 完成任务闭环；
 10. 不污染：通用仓库不包含真实用户知识和具体项目事实。
-
-## 9. 风险与注意事项
-
-1. 治理报告是证据，不是长期事实源。
-2. Obsidian workspace、graph 和插件运行代码不是事实源。
-3. 自检脚本只允许 dry-run，不允许自动修改文档。
-4. Project Template 只保留通用占位，不填入具体项目事实。
-5. `templates/**` 是唯一模板源，后续提示词模板也进入该目录。
-6. Knowledge intake 只能保存候选和模板，不得把未审查内容写入 RAG 或 Project Facts。
-7. HarnessVault 不实现 agent runtime、sandbox、tool routing、model call 或实际任务执行。
