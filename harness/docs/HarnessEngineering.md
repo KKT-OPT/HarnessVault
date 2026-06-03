@@ -15,7 +15,7 @@ tags:
   - rag
   - templates
   - verification
-version: v1.2.2
+version: v1.2.3
 createdAt: 2026-05-28 00:00:00.000 +08:00
 updatedAt: 2026-06-03 00:00:00.000 +08:00
 status: draft
@@ -71,6 +71,8 @@ v1.2.0 吸收 P0-P15-pre 的落地结果，重点同步当前真实架构：
 v1.2.1 补充 P15b 的 machine-readable Agent Context Manifest：它只保存稳定导航、默认上下文边界和层级 index 映射，不替代 Markdown 事实源。
 
 v1.2.2 落地 P15c 的 RAG intake raw / enriched 空分区：`docs/rag/intake/raw/README.md` 与 `docs/rag/intake/enriched/README.md` 只保存候选分区规则，不保存真实知识正文。
+
+v1.2.3 落地 P15d 的复杂任务 Prompt 入口规则：`AGENTS.md`、[[PromptPolicy]] 与 [[TemplatesIndex]] 均指向 `templates/ComplexTaskPromptTemplate.md`，并明确 XML-like block 是 prompt 结构约定，不是强制 schema。
 
 ## 2. Harness Engineering 定义
 
@@ -337,7 +339,7 @@ Harness Engineering v1.2.x 推荐采用以下架构层。
 7. `RawKnowledgeMaterialTemplate.md`；
 8. `EffectiveKnowledgeTemplate.md`。
 
-复杂任务应优先使用 `ComplexTaskPromptTemplate.md`，用 XML-like block 隔离 final goal、previous context、feedback、task、inspection scope、constraints、acceptance criteria、output format 和 governance notes。
+复杂任务应优先使用 `ComplexTaskPromptTemplate.md`，用 XML-like block 隔离 entry contract、final goal、previous context、feedback、task、inspection scope、constraints、acceptance criteria、output format 和 governance notes。
 
 ## 11. Knowledge Base Construction
 
@@ -577,9 +579,8 @@ v1.2.0 之后的后续工作：
 
 1. 准备 P15 完成态验证用例；
 2. 使用 `docs/agent/AgentContextManifest.yaml` 维护 machine-readable 辅助入口；
-3. 将 ComplexTaskPromptTemplate 接入 AGENTS.md 的任务规则；
-4. 执行 P15 Harness 完成态验证；
-5. 进入 P16 通用模板冻结与 v1.0.0 发布候选。
+3. 执行 P15 Harness 完成态验证；
+4. 进入 P16 通用模板冻结与 v1.0.0 发布候选。
 
 ## 23. 完成态判断
 

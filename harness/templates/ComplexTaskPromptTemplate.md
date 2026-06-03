@@ -13,9 +13,9 @@ tags:
   - harness
   - prompt
   - template
-version: v0.1.0
+version: v0.1.1
 createdAt: 2026-06-02 00:00:00.000 +08:00
-updatedAt: 2026-06-02 00:00:00.000 +08:00
+updatedAt: 2026-06-03 00:00:00.000 +08:00
 status: draft
 type: template
 purpose: 提供复杂 Harness 任务的通用 prompt 模板。
@@ -23,6 +23,9 @@ scope: HarnessVault templates。
 prerequisites:
   - AGENTS.md
 relatedDocuments:
+  - "[[VaultAgents]]"
+  - "[[INDEX]]"
+  - "[[PLANS]]"
   - "[[TemplatesIndex]]"
   - "[[PromptPolicy]]"
   - "[[DocumentAudiencePolicy]]"
@@ -37,7 +40,7 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 ## Entry Contract
 
 <entry_contract>
-Before executing this task, read AGENTS.md, docs/INDEX.md, docs/PLANS.md, and task-specific documents listed in the inspection scope.
+Before executing this task, read AGENTS.md, docs/INDEX.md, docs/PLANS.md, and task-specific documents listed in the inspection scope. Do not skip the entry contract even when previous context is provided.
 </entry_contract>
 
 ## Final Goal
@@ -102,3 +105,7 @@ Before executing this task, read AGENTS.md, docs/INDEX.md, docs/PLANS.md, and ta
 - 是否产生 Memory / Skill / RAG / Project Fact candidate
 - 是否需要用户审批
 </governance_notes>
+
+## Template Boundary
+
+This template is a prompt structure convention, not a machine-enforced schema. It must not contain real user knowledge, concrete project facts, secrets, or unreviewed intake content.

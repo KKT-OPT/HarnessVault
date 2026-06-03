@@ -22,6 +22,8 @@ Any agent working in this repository must read:
 4. `harness/docs/PLANS.md`
 5. Task-specific documents listed in `harness/docs/INDEX.md`
 
+For complex Harness tasks with prior context, multi-document scope, explicit acceptance criteria, or governance impact, structure the working prompt with `harness/templates/ComplexTaskPromptTemplate.md` after the required reading order is understood.
+
 ## Hard Constraints
 
 - Do not treat `.obsidian/` workspace state or plugin runtime code as Harness source documents.

@@ -9,7 +9,7 @@ tags:
   - harness
   - plan
   - governance
-version: v0.18.1
+version: v0.18.2
 createdAt: 2026-05-29 00:00:00.000 +08:00
 updatedAt: 2026-06-03 00:00:00.000 +08:00
 status: draft
@@ -44,15 +44,17 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 
 ## 1. 当前阶段
 
-当前阶段：`P15c - RAG Intake Raw / Enriched 空分区落地`
+当前阶段：`P15d - Prompt Template 接入 AGENTS.md 与任务入口规则`
 
 P15a 已完成：[[HarnessEngineering]] 已升级到 v1.2.0，并完成与当前 HarnessVault 架构的同步收口。
 
 P15b 已完成：`docs/agent/AgentContextManifest.yaml` 已作为轻量 machine-readable 辅助入口接入，智能体可以快速读取稳定导航信息、默认排除路径和架构层映射。
 
-P15c 的目标是补齐 `docs/rag/intake/raw/` 与 `docs/rag/intake/enriched/` 的空分区 README，使后续用户可以按 raw material → semantic enrichment → effective knowledge → review / promotion 的路径建立知识库。
+P15c 已完成：`docs/rag/intake/raw/` 与 `docs/rag/intake/enriched/` 的空分区 README 已落地，可按 raw material → semantic enrichment → effective knowledge → review / promotion 的路径建立知识库。
 
-P15c 不执行 P15 完成态验证，不写入真实用户知识，不写入具体项目事实，不导入外部知识正文，不创建项目级 RAG 内容。
+P15d 的目标是将 [[ComplexTaskPromptTemplate]] 接入 `AGENTS.md` 与 [[PromptPolicy]]，使复杂任务能够稳定使用结构化 prompt。
+
+P15d 不执行 P15 完成态验证，不写入真实用户知识，不写入具体项目事实，不导入外部知识正文，不创建项目级 RAG 内容。
 
 ## 2. P0-P15-pre 状态
 
