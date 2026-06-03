@@ -1,5 +1,5 @@
 manifestName: AgentContextManifest
-version: v0.1.0
+version: v0.1.1
 status: draft
 updatedAt: "2026-06-03 00:00:00.000 +08:00"
 purpose: Machine-checkable auxiliary navigation for HarnessVault agent context loading.
@@ -39,6 +39,8 @@ contextLoading:
     - templates/README.md
   defaultExclude:
     - docs/reports/archive/**
+    - docs/rag/intake/raw/**
+    - docs/rag/intake/enriched/**
     - .obsidian/workspace*.json
     - .obsidian/graph.json
     - .obsidian/plugins/**/main.js
@@ -89,6 +91,13 @@ artifactBoundary:
     defaultContext: false
     factSource: false
     note: Historical evidence only.
+  ragIntakeCandidates:
+    patterns:
+      - docs/rag/intake/raw/**
+      - docs/rag/intake/enriched/**
+    defaultContext: false
+    factSource: false
+    note: Raw and enriched intake candidates require review before promotion to active RAG.
   obsidianWorkspace:
     patterns:
       - .obsidian/workspace*.json

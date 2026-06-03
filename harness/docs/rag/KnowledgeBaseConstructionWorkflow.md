@@ -10,9 +10,9 @@ tags:
   - rag
   - knowledge-base
   - workflow
-version: v0.1.0
+version: v0.1.1
 createdAt: 2026-06-02 00:00:00.000 +08:00
-updatedAt: 2026-06-02 00:00:00.000 +08:00
+updatedAt: 2026-06-03 00:00:00.000 +08:00
 status: draft
 type: policy
 purpose: 定义从原始资料到有效知识库文档的通用构建流程。
@@ -25,6 +25,8 @@ relatedDocuments:
   - "[[KnowledgeIntakePolicy]]"
   - "[[KnowledgeBasePolicy]]"
   - "[[KnowledgePromotionPolicy]]"
+  - "[[RAGRawIntake]]"
+  - "[[RAGEnrichedIntake]]"
   - "[[RawKnowledgeMaterialTemplate]]"
   - "[[EffectiveKnowledgeTemplate]]"
 outputTo:
@@ -106,6 +108,8 @@ docs/rag/standard/
 docs/reports/rag/
 ```
 
+`docs/rag/intake/raw/README.md` 和 `docs/rag/intake/enriched/README.md` 只定义空分区规则。两者不是事实源，不进入默认上下文，未经审查不得进入 active RAG。
+
 ## 7. 模板
 
 | 模板 | 用途 |
@@ -119,5 +123,7 @@ docs/reports/rag/
 - [[KnowledgeIntakePolicy]]
 - [[KnowledgeBasePolicy]]
 - [[KnowledgePromotionPolicy]]
+- [[RAGRawIntake]]
+- [[RAGEnrichedIntake]]
 - [[RawKnowledgeMaterialTemplate]]
 - [[EffectiveKnowledgeTemplate]]

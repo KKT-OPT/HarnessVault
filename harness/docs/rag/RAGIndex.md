@@ -9,9 +9,9 @@ tags:
   - harness
   - rag
   - index
-version: v0.6.0
+version: v0.6.1
 createdAt: 2026-05-30 00:00:00.000 +08:00
-updatedAt: 2026-06-02 00:00:00.000 +08:00
+updatedAt: 2026-06-03 00:00:00.000 +08:00
 status: draft
 type: index
 purpose: 索引 HarnessVault 的 RAG 知识库文档、知识引入规则、知识库构建流程和候选区。
@@ -25,6 +25,8 @@ relatedDocuments:
   - "[[KnowledgeIntakePolicy]]"
   - "[[KnowledgeBaseConstructionWorkflow]]"
   - "[[KnowledgeIntake]]"
+  - "[[RAGRawIntake]]"
+  - "[[RAGEnrichedIntake]]"
   - "[[KnowledgeIntakeTemplate]]"
   - "[[RawKnowledgeMaterialTemplate]]"
   - "[[EffectiveKnowledgeTemplate]]"
@@ -60,6 +62,8 @@ RAG 不保存任务历史，不直接保存一次性 workflow，不替代 Projec
 | 分区 | 状态 | 用途 |
 |---|---|---|
 | [[KnowledgeIntake]] | draft | 未审查知识候选暂存区，不是事实源 |
+| [[RAGRawIntake]] | draft | raw material 候选分区，只保存原始资料元信息、短摘要和来源，不是事实源 |
+| [[RAGEnrichedIntake]] | draft | semantic enrichment 候选分区，保存语义、关键词、适用范围和可信度判断，不是事实源 |
 | [[RAGStandard]] | draft | 通用规范知识分区，当前不保存真实规范知识正文 |
 | [[RAGDomain]] | draft | 领域知识分区，当前不保存真实领域知识正文 |
 
@@ -68,6 +72,8 @@ RAG 不保存任务历史，不直接保存一次性 workflow，不替代 Projec
 | 文档 | 状态 | 用途 |
 |---|---|---|
 | [[KnowledgeIntake]] | draft | 知识暂存区规则 |
+| [[RAGRawIntake]] | draft | raw material 空分区规则 |
+| [[RAGEnrichedIntake]] | draft | semantic enrichment 空分区规则 |
 | [[KnowledgeIntakeTemplate]] | draft | 知识引入候选模板 |
 | [[RawKnowledgeMaterialTemplate]] | draft | 原始资料层候选模板 |
 | [[EffectiveKnowledgeTemplate]] | draft | 审查后的有效知识文档模板 |
@@ -102,6 +108,8 @@ RAG 文档必须满足：
 - [[KnowledgeIntakePolicy]]
 - [[KnowledgeBaseConstructionWorkflow]]
 - [[KnowledgeIntake]]
+- [[RAGRawIntake]]
+- [[RAGEnrichedIntake]]
 - [[KnowledgeIntakeTemplate]]
 - [[RawKnowledgeMaterialTemplate]]
 - [[EffectiveKnowledgeTemplate]]

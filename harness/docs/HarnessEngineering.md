@@ -15,7 +15,7 @@ tags:
   - rag
   - templates
   - verification
-version: v1.2.1
+version: v1.2.2
 createdAt: 2026-05-28 00:00:00.000 +08:00
 updatedAt: 2026-06-03 00:00:00.000 +08:00
 status: draft
@@ -69,6 +69,8 @@ v1.2.0 吸收 P0-P15-pre 的落地结果，重点同步当前真实架构：
 8. Complex Task Prompt Template。
 
 v1.2.1 补充 P15b 的 machine-readable Agent Context Manifest：它只保存稳定导航、默认上下文边界和层级 index 映射，不替代 Markdown 事实源。
+
+v1.2.2 落地 P15c 的 RAG intake raw / enriched 空分区：`docs/rag/intake/raw/README.md` 与 `docs/rag/intake/enriched/README.md` 只保存候选分区规则，不保存真实知识正文。
 
 ## 2. Harness Engineering 定义
 
@@ -366,6 +368,8 @@ raw material
 
 智能体不得未经审查直接把 raw material 写入 active RAG，不得把 intake 内容当作事实源。
 
+通用 HarnessVault 已提供 `docs/rag/intake/raw/README.md` 与 `docs/rag/intake/enriched/README.md` 作为空分区入口。两个分区只定义候选资料和语义增强的保存规则，默认不进入上下文，未经审查不得晋升为 active RAG。
+
 ## 12. Document Audience and Format Strategy
 
 不应把所有 Markdown 都改成 XML 或 JSON。Markdown 仍是主要维护格式；只有需要严格解析的 prompt、trace、report summary、knowledge card、manifest、sidecar 采用更强结构。`docs/agent/AgentContextManifest.yaml` 是 manifest 类 machine-checkable 辅助入口，只承载导航和上下文加载规则，不保存真实项目事实或用户知识。
@@ -572,11 +576,10 @@ templates/ComplexTaskPromptTemplate.md
 v1.2.0 之后的后续工作：
 
 1. 准备 P15 完成态验证用例；
-2. 补齐 RAG intake raw / enriched 空分区 README；
-3. 使用 `docs/agent/AgentContextManifest.yaml` 维护 machine-readable 辅助入口；
-4. 将 ComplexTaskPromptTemplate 接入 AGENTS.md 的任务规则；
-5. 执行 P15 Harness 完成态验证；
-6. 进入 P16 通用模板冻结与 v1.0.0 发布候选。
+2. 使用 `docs/agent/AgentContextManifest.yaml` 维护 machine-readable 辅助入口；
+3. 将 ComplexTaskPromptTemplate 接入 AGENTS.md 的任务规则；
+4. 执行 P15 Harness 完成态验证；
+5. 进入 P16 通用模板冻结与 v1.0.0 发布候选。
 
 ## 23. 完成态判断
 
