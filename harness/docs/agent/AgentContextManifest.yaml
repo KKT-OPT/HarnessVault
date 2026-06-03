@@ -1,0 +1,112 @@
+manifestName: AgentContextManifest
+version: v0.1.0
+status: draft
+updatedAt: "2026-06-03 00:00:00.000 +08:00"
+purpose: Machine-checkable auxiliary navigation for HarnessVault agent context loading.
+scope: HarnessVault stable navigation, layer mapping, and default context boundaries.
+authority: auxiliary
+markdownFactsRemainAuthoritative: true
+mustNotContain:
+  - real_user_knowledge
+  - concrete_project_facts
+  - task_history
+  - runtime_configuration
+
+entryOrder:
+  repository:
+    - AGENTS.md
+  vault:
+    - AGENTS.md
+    - docs/INDEX.md
+    - docs/PLANS.md
+    - layer_index_for_task
+    - task_specific_policy_or_template
+
+contextLoading:
+  defaultInclude:
+    - AGENTS.md
+    - README.md
+    - docs/INDEX.md
+    - docs/PLANS.md
+    - docs/HarnessEngineering.md
+    - docs/agent/AgentIndex.md
+    - docs/governance/GovernanceIndex.md
+    - docs/rag/RAGIndex.md
+    - docs/project-template/ProjectIndex.md
+    - docs/reports/README.md
+    - docs/observability/ObservabilityIndex.md
+    - docs/verification/VerificationIndex.md
+    - templates/README.md
+  defaultExclude:
+    - docs/reports/archive/**
+    - .obsidian/workspace*.json
+    - .obsidian/graph.json
+    - .obsidian/plugins/**/main.js
+    - .obsidian/plugins/**/styles.css
+    - .obsidian/plugins/**/obsidian_askpass.sh
+    - node_modules/**
+    - build/**
+    - dist/**
+    - generated-html/**
+    - notebook-temporary-output/**
+  excludeRule: Excluded artifacts are not default context and are not Harness fact sources unless a user explicitly requests forensic inspection.
+
+layers:
+  Governance Runtime Layer:
+    index: docs/governance/GovernanceIndex.md
+    purpose: Lifecycle, scheduled governance, security governance, cleanup, promotion, runtime boundary, and index maintenance.
+  Agent Capability Layer:
+    index: docs/agent/AgentIndex.md
+    purpose: Agent context loading, prompt, skill, memory, and document audience rules.
+  Knowledge Layer:
+    index: docs/rag/RAGIndex.md
+    purpose: RAG knowledge base entry and knowledge governance rules.
+  Project Template Layer:
+    index: docs/project-template/ProjectIndex.md
+    purpose: Project harness instantiation template entry.
+  Templates Layer:
+    index: templates/README.md
+    purpose: Unified source for Obsidian, Templater, prompt, workflow, policy, report, memory, skill, and knowledge templates.
+  Observability Layer:
+    index: docs/observability/ObservabilityIndex.md
+    purpose: Task trace, operation event, failure attribution, evidence, and human intervention records.
+  Verification Layer:
+    index: docs/verification/VerificationIndex.md
+    purpose: Readiness, acceptance, regression verification, and repair loop.
+  Governance Reports Layer:
+    index: docs/reports/README.md
+    purpose: Governance reports, index check reports, security reports, and dry-run results.
+  Obsidian Tooling Layer:
+    index: docs/ObsidianSetup.md
+    purpose: Obsidian, Dataview, Templater, and Linter usage notes.
+  Dynamic View Layer:
+    index: docs/Dashboard.md
+    purpose: Dataview dynamic views that do not replace formal indexes.
+
+artifactBoundary:
+  archivedReports:
+    pattern: docs/reports/archive/**
+    defaultContext: false
+    factSource: false
+    note: Historical evidence only.
+  obsidianWorkspace:
+    patterns:
+      - .obsidian/workspace*.json
+      - .obsidian/graph.json
+    defaultContext: false
+    factSource: false
+    note: Editor state and graph layout only.
+  pluginRuntimeCode:
+    patterns:
+      - .obsidian/plugins/**/main.js
+      - .obsidian/plugins/**/styles.css
+      - .obsidian/plugins/**/obsidian_askpass.sh
+    defaultContext: false
+    factSource: false
+    note: Tool runtime code, not Harness source documents.
+
+usageRules:
+  - Use this manifest to quickly locate stable navigation entries and default context boundaries.
+  - Do not use this manifest as the only source of truth for task decisions.
+  - Resolve substantive questions by reading the Markdown entry contract, index, plan, and task-specific documents.
+  - Treat Markdown documents as the formal Harness fact source unless a governance document explicitly defines a machine-checkable artifact as authoritative for a narrow check.
