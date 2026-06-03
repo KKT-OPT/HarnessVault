@@ -15,9 +15,9 @@ tags:
   - rag
   - templates
   - verification
-version: v1.2.0
+version: v1.2.1
 createdAt: 2026-05-28 00:00:00.000 +08:00
-updatedAt: 2026-06-02 00:00:00.000 +08:00
+updatedAt: 2026-06-03 00:00:00.000 +08:00
 status: draft
 type: architecture-design
 purpose: 通用 Harness Engineering 文档资产架构设计方案。
@@ -41,6 +41,7 @@ relatedDocuments:
   - "[[KnowledgeBaseConstructionWorkflow]]"
   - "[[ObsidianGitBoundaryPolicy]]"
   - "[[HarnessValidationPlan]]"
+  - docs/agent/AgentContextManifest.yaml
 outputTo:
   - HarnessVault
   - project-specific harness instance
@@ -66,6 +67,8 @@ v1.2.0 吸收 P0-P15-pre 的落地结果，重点同步当前真实架构：
 6. Verification / Simulation 完成态验证；
 7. `scripts/**` dry-run self-check 工具层；
 8. Complex Task Prompt Template。
+
+v1.2.1 补充 P15b 的 machine-readable Agent Context Manifest：它只保存稳定导航、默认上下文边界和层级 index 映射，不替代 Markdown 事实源。
 
 ## 2. Harness Engineering 定义
 
@@ -194,7 +197,7 @@ harness/
 │   ├── HarnessEngineering.md         # 总体架构设计
 │   ├── ObsidianSetup.md              # Obsidian 使用说明
 │   ├── governance/                   # 治理策略
-│   ├── agent/                        # agent context / prompt / skill / memory 规则
+│   ├── agent/                        # agent context / prompt / skill / memory 规则，含 AgentContextManifest.yaml 辅助入口
 │   ├── rag/                          # RAG 知识库结构、intake、standard、domain
 │   ├── project-template/             # 项目实例化结构说明，不保存真实项目事实
 │   ├── reports/                      # 治理报告、索引报告、安全报告、归档报告
@@ -279,7 +282,7 @@ flowchart TD
 
 ## 8. 分层架构
 
-Harness Engineering v1.2.0 推荐采用以下架构层。
+Harness Engineering v1.2.x 推荐采用以下架构层。
 
 | 层级 | 名称 | 入口 | 职责 |
 |---|---|---|---|
@@ -304,10 +307,12 @@ Harness Engineering v1.2.0 推荐采用以下架构层。
 1. AGENTS.md
 2. docs/INDEX.md
 3. docs/PLANS.md
-4. task-specific index / policy / template
+4. task-specific layer index / policy / template
 ```
 
 `AGENTS.md` 承载入口契约，不承载大量项目知识、不承载完整架构正文、不承载完整任务历史、不承载 runtime 专属配置。
+
+`docs/agent/AgentContextManifest.yaml` 是 machine-checkable 辅助入口，用于表达稳定入口顺序、default include / default exclude、架构层到 index 文档的映射和 artifact boundary。它不替代 Markdown；智能体不能只读取 manifest 来完成任务，实质性判断仍必须回到 `AGENTS.md`、`docs/INDEX.md`、`docs/PLANS.md`、层级 index 和相关 policy / template。
 
 `INDEX.md` 只链接各架构层 index，不直接列出所有子文档。
 
@@ -363,7 +368,7 @@ raw material
 
 ## 12. Document Audience and Format Strategy
 
-不应把所有 Markdown 都改成 XML 或 JSON。Markdown 仍是主要维护格式；只有需要严格解析的 prompt、trace、report summary、knowledge card、manifest、sidecar 采用更强结构。
+不应把所有 Markdown 都改成 XML 或 JSON。Markdown 仍是主要维护格式；只有需要严格解析的 prompt、trace、report summary、knowledge card、manifest、sidecar 采用更强结构。`docs/agent/AgentContextManifest.yaml` 是 manifest 类 machine-checkable 辅助入口，只承载导航和上下文加载规则，不保存真实项目事实或用户知识。
 
 | 类型 | 主要读者 | 推荐格式 | 示例 |
 |---|---|---|---|
@@ -568,7 +573,7 @@ v1.2.0 之后的后续工作：
 
 1. 准备 P15 完成态验证用例；
 2. 补齐 RAG intake raw / enriched 空分区 README；
-3. 评估是否新增 machine-readable Agent Context Manifest；
+3. 使用 `docs/agent/AgentContextManifest.yaml` 维护 machine-readable 辅助入口；
 4. 将 ComplexTaskPromptTemplate 接入 AGENTS.md 的任务规则；
 5. 执行 P15 Harness 完成态验证；
 6. 进入 P16 通用模板冻结与 v1.0.0 发布候选。

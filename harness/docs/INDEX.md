@@ -9,9 +9,9 @@ tags:
   - harness
   - index
   - documentation
-version: v0.5.0
+version: v0.6.0
 createdAt: 2026-05-29 00:00:00.000 +08:00
-updatedAt: 2026-06-01 00:00:00.000 +08:00
+updatedAt: 2026-06-03 00:00:00.000 +08:00
 status: draft
 type: index
 purpose: HarnessVault 顶层文档导航入口，链接各架构层的二级索引。
@@ -23,6 +23,7 @@ relatedDocuments:
   - "[[PLANS]]"
   - "[[GovernanceIndex]]"
   - "[[AgentIndex]]"
+  - docs/agent/AgentContextManifest.yaml
   - "[[RAGIndex]]"
   - "[[ProjectIndex]]"
   - "[[ReportsIndex]]"
@@ -69,7 +70,11 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 | [[HarnessEngineering]] | draft | Harness 文档系统总体架构、治理机制、目录边界和长期演进规则 |
 | [[PLANS]] | draft | 当前阶段目标、验收标准和下一步拆分计划 |
 
-## 4. 索引维护规则
+## 4. Machine-readable 辅助入口
+
+`docs/agent/AgentContextManifest.yaml` 提供机器友好的稳定导航、默认 include / exclude 和架构层到 index 文档的映射。该 manifest 只用于辅助上下文加载和脚本检查，不替代 Markdown 事实源；任何实质性任务判断仍应回到 `AGENTS.md`、本索引、[[PLANS]] 和任务相关层级文档。
+
+## 5. 索引维护规则
 
 1. 顶层 `INDEX.md` 只链接各架构层入口索引，不直接列出所有子文档。
 2. 各层具体文档由本层 index 维护。

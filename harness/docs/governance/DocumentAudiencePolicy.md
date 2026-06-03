@@ -10,9 +10,9 @@ tags:
   - governance
   - documentation
   - agent
-version: v0.1.0
+version: v0.2.0
 createdAt: 2026-06-02 00:00:00.000 +08:00
-updatedAt: 2026-06-02 00:00:00.000 +08:00
+updatedAt: 2026-06-03 00:00:00.000 +08:00
 status: draft
 type: policy
 purpose: 定义 Harness 文档面向智能体、人类和机器检查的受众分类与格式策略。
@@ -25,6 +25,7 @@ relatedDocuments:
   - "[[HarnessEngineering]]"
   - "[[PromptPolicy]]"
   - "[[TemplatesIndex]]"
+  - docs/agent/AgentContextManifest.yaml
   - "[[KnowledgeBaseConstructionWorkflow]]"
 outputTo:
   - HarnessVault
@@ -49,6 +50,8 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 | hybrid | 人类 + 智能体 | Markdown + 结构化字段 | 计划、报告、知识卡片、项目事实 |
 | machine-checkable | 脚本 / 工具 | JSON / JSONL / YAML / sidecar | usage、manifest、自检结果、可解析数据 |
 | prompt-structured | 智能体 | XML-like block + Markdown | 复杂任务 prompt、约束、验收标准 |
+
+`docs/agent/AgentContextManifest.yaml` 属于 machine-checkable 辅助入口。它用于表达稳定导航、默认 include / exclude、架构层到 index 文档的映射和 artifact boundary；它不替代 `AGENTS.md`、[[INDEX]]、[[PLANS]]、层级 index、policy 或模板等 Markdown 事实源，也不得包含真实项目事实或用户知识。
 
 ## 3. 智能体优先读取文档
 
@@ -127,7 +130,7 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 
 1. templates；
 2. prompt；
-3. manifest；
+3. manifest，例如 `docs/agent/AgentContextManifest.yaml`；
 4. checklist；
 5. self-check output。
 
@@ -138,3 +141,4 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 - [[PromptPolicy]]
 - [[TemplatesIndex]]
 - [[KnowledgeBaseConstructionWorkflow]]
+- `docs/agent/AgentContextManifest.yaml`

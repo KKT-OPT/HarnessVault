@@ -9,9 +9,9 @@ tags:
   - harness
   - plan
   - governance
-version: v0.17.0
+version: v0.18.0
 createdAt: 2026-05-29 00:00:00.000 +08:00
-updatedAt: 2026-06-02 00:00:00.000 +08:00
+updatedAt: 2026-06-03 00:00:00.000 +08:00
 status: draft
 type: plan
 purpose: 记录 HarnessVault 当前阶段目标、验收标准、剩余落地路线和验证路线。
@@ -44,11 +44,13 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 
 ## 1. 当前阶段
 
-当前阶段：`P15a - HarnessEngineering v1.2.0 与架构同步收口`
+当前阶段：`P15b - 机器友好入口与 Agent Context Manifest`
 
-P15a 的目标是完成第一优先级：将 P15-pre 的设计审查结论正式吸收到 [[HarnessEngineering]]，使总体设计文档与当前 main 分支真实架构一致。
+P15a 已完成：[[HarnessEngineering]] 已升级到 v1.2.0，并完成与当前 HarnessVault 架构的同步收口。
 
-P15a 不执行 P15 完成态验证，不写入真实用户知识，不写入具体项目事实，不导入外部知识正文，不创建项目级 RAG 内容。
+P15b 的目标是在不替代 Markdown 的前提下，补充 `docs/agent/AgentContextManifest.yaml` 作为轻量 machine-readable 辅助入口，使智能体可以快速读取稳定导航信息、默认排除路径和架构层映射。
+
+P15b 不执行 P15 完成态验证，不写入真实用户知识，不写入具体项目事实，不导入外部知识正文，不创建项目级 RAG 内容。
 
 ## 2. P0-P15-pre 状态
 
@@ -65,7 +67,7 @@ P15-pre 已满足验收标准：
 5. [[ComplexTaskPromptTemplate]] 已作为复杂任务 Prompt 模板。
 6. P15-pre 未写入真实用户知识，未写入具体项目事实。
 
-## 4. P15a 目标
+## 4. P15a 目标（已完成）
 
 P15a 要完成：
 
@@ -77,11 +79,11 @@ P15a 要完成：
 6. 在 [[HarnessEngineering]] 中明确 Reports Archive、Obsidian/Git Boundary、Verification/Simulation、Scripts/self-check、Complex Task Prompt Template。
 7. 在本文件中列出后续第二优先级到第五优先级的工作项和验收标准。
 
-## 5. P15a 验收标准
+## 5. P15a 验收标准（已完成）
 
 P15a 完成标准：
 
-1. [[HarnessEngineering]] frontmatter version 为 `v1.2.0`。
+1. P15a 完成时 [[HarnessEngineering]] frontmatter version 为 `v1.2.0`；后续 P15b 可按 manifest 接入进行小版本更新。
 2. [[HarnessEngineering]] 推荐目录结构与当前 main 架构一致，包含 `templates/**` 和 `scripts/**`。
 3. [[HarnessEngineering]] 不再把 `docs/agent/workflow-template/` 作为推荐模板路径。
 4. [[HarnessEngineering]] 明确 `templates/**` 是唯一模板源。
@@ -200,7 +202,7 @@ docs/verification/HarnessValidationCases.md
 
 验收标准：
 
-1. [[HarnessValidationCases]] 至少包含上述 6 类验证用例。
+1. `HarnessValidationCases` 至少包含上述 6 类验证用例。
 2. 每个用例包含输入、读取路径、预期行为、禁止行为、通过标准。
 3. 用例只使用占位输入，不写入真实用户知识或具体项目事实。
 4. [[VerificationIndex]] 能导航到验证用例清单。
@@ -215,7 +217,7 @@ P15 在 P15b-P15e 完成后执行。
 需要完成：
 
 1. 使用 [[HarnessValidationPlan]] 定义验证范围；
-2. 使用 [[HarnessInteractionSimulation]] 和 [[HarnessValidationCases]] 模拟任务；
+2. 使用 [[HarnessInteractionSimulation]] 和 `HarnessValidationCases` 模拟任务；
 3. 验证智能体是否能从 `AGENTS.md` 和 [[INDEX]] 找到正确文档；
 4. 验证智能体是否能区分 RAG、Project Facts、Memory、Skill、Workflow、Report；
 5. 验证智能体是否能执行 readiness、trace、verification、regression、promotion candidate 的闭环；
@@ -259,5 +261,5 @@ P15 在 P15b-P15e 完成后执行。
 6. 验证完整：readiness、trace、failure attribution、regression、acceptance 有规则；
 7. 报告完整：治理、索引、Memory、Skill、RAG、安全、归档报告有规则；
 8. 自检可运行：至少有 dry-run 脚本和报告模板；
-9. 模拟可通过：智能体能按 [[HarnessInteractionSimulation]] 和 [[HarnessValidationCases]] 完成任务闭环；
+9. 模拟可通过：智能体能按 [[HarnessInteractionSimulation]] 和 `HarnessValidationCases` 完成任务闭环；
 10. 不污染：通用仓库不包含真实用户知识和具体项目事实。
