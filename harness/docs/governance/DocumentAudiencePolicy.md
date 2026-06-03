@@ -10,9 +10,9 @@ tags:
   - governance
   - documentation
   - agent
-version: v0.1.0
+version: v0.2.0
 createdAt: 2026-06-02 00:00:00.000 +08:00
-updatedAt: 2026-06-02 00:00:00.000 +08:00
+updatedAt: 2026-06-03 00:00:00.000 +08:00
 status: draft
 type: policy
 purpose: 定义 Harness 文档面向智能体、人类和机器检查的受众分类与格式策略。
@@ -26,6 +26,7 @@ relatedDocuments:
   - "[[PromptPolicy]]"
   - "[[TemplatesIndex]]"
   - "[[KnowledgeBaseConstructionWorkflow]]"
+  - docs/agent/AgentContextManifest.yaml
 outputTo:
   - HarnessVault
 owner: human
@@ -114,7 +115,21 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 5. index cache，若后续引入；
 6. frontmatter。
 
-## 6. 删除解释文字的边界
+## 6. Agent Context Manifest
+
+`docs/agent/AgentContextManifest.yaml` 属于 machine-checkable 辅助入口。
+
+它可以帮助智能体快速读取稳定导航信息，例如：
+
+1. entry order；
+2. default include / exclude；
+3. layer index mapping；
+4. artifact boundary；
+5. validation entry。
+
+它不替代 Markdown 事实源。正式事实仍以 `AGENTS.md`、[[INDEX]]、[[PLANS]]、各层 index 和 policy 为准。
+
+## 7. 删除解释文字的边界
 
 不建议为了智能体读取而删除所有解释文字。解释文字仍有价值：
 
@@ -131,10 +146,11 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 4. checklist；
 5. self-check output。
 
-## 7. 关联文档
+## 8. 关联文档
 
 - [[GovernanceIndex]]
 - [[HarnessEngineering]]
 - [[PromptPolicy]]
 - [[TemplatesIndex]]
 - [[KnowledgeBaseConstructionWorkflow]]
+- `docs/agent/AgentContextManifest.yaml`
