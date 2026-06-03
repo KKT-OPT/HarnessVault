@@ -1,0 +1,126 @@
+schemaVersion: 0.1.0
+documentName: docs/agent/AgentContextManifest.yaml
+title: Agent Context Manifest
+status: draft
+type: machine-checkable-manifest
+purpose: Machine-readable auxiliary navigation for HarnessVault agents. This file does not replace Markdown source documents.
+scope: HarnessVault generic context loading.
+owner: human
+reviewAfter: "2026-07-01 00:00:00.000 +08:00"
+
+sourceOfTruth:
+  markdownFirst: true
+  officialEntry:
+    - AGENTS.md
+    - docs/INDEX.md
+    - docs/PLANS.md
+  note: This manifest is an auxiliary routing aid. Markdown documents remain the authoritative source.
+
+entryOrder:
+  - path: AGENTS.md
+    role: entry-contract
+    required: true
+  - path: docs/INDEX.md
+    role: top-level-index
+    required: true
+  - path: docs/PLANS.md
+    role: current-plan
+    required: true
+  - path: task-specific-layer-index
+    role: layer-index
+    required: task-dependent
+
+defaultInclude:
+  - AGENTS.md
+  - README.md
+  - docs/INDEX.md
+  - docs/PLANS.md
+  - docs/HarnessEngineering.md
+
+defaultExclude:
+  - docs/reports/archive/**
+  - harness/.obsidian/workspace*.json
+  - harness/.obsidian/workspaces.json
+  - harness/.obsidian/graph.json
+  - harness/.obsidian/plugins/**/main.js
+  - harness/.obsidian/plugins/**/styles.css
+  - harness/.obsidian/plugins/**/obsidian_askpass.sh
+  - .obsidian/workspace*.json
+  - .obsidian/workspaces.json
+  - .obsidian/graph.json
+  - .obsidian/plugins/**/main.js
+  - .obsidian/plugins/**/styles.css
+  - .obsidian/plugins/**/obsidian_askpass.sh
+
+layers:
+  governance:
+    index: docs/governance/GovernanceIndex.md
+    purpose: Lifecycle, safety, archive, document audience, promotion, and boundary policies.
+  agent:
+    index: docs/agent/AgentIndex.md
+    purpose: Context loading, prompt policy, skill policy, memory policy, and agent-facing manifest.
+  rag:
+    index: docs/rag/RAGIndex.md
+    purpose: Knowledge intake, raw material, effective knowledge, standard and domain knowledge governance.
+  projectTemplate:
+    index: docs/project-template/ProjectIndex.md
+    purpose: Generic project harness instance structure.
+  templates:
+    index: templates/README.md
+    purpose: Unique reusable template source.
+  reports:
+    index: docs/reports/README.md
+    purpose: Governance, index, memory, skill, RAG, security, and archive reports.
+  observability:
+    index: docs/observability/ObservabilityIndex.md
+    purpose: Trace, operation event, failure attribution, evidence, and human intervention records.
+  verification:
+    index: docs/verification/VerificationIndex.md
+    purpose: Readiness, acceptance, regression, and Harness validation rules.
+  obsidian:
+    index: docs/ObsidianSetup.md
+    purpose: Obsidian editing setup and boundary notes.
+  dashboard:
+    index: docs/Dashboard.md
+    purpose: Dataview dynamic views. Not a source-of-truth replacement.
+
+contextRules:
+  projectFacts:
+    priority: highest
+    locationInProjectInstance: docs/project/**
+    genericVaultRule: Do not write concrete project facts into generic HarnessVault.
+  rag:
+    load: on-demand
+    rule: Do not treat intake/raw/enriched content as active knowledge before review.
+  reports:
+    load: on-demand
+    rule: Reports are evidence; archived reports are excluded by default.
+  templates:
+    load: task-dependent
+    rule: templates/** is the unique reusable template source.
+  memory:
+    load: task-dependent
+    rule: Active memory requires human approval; candidates are not active memory.
+  skill:
+    load: task-dependent
+    rule: Use SkillIndex before reading full SKILL.md.
+
+artifactBoundaries:
+  notFactSources:
+    - Obsidian workspace state
+    - Obsidian graph state
+    - plugin runtime code
+    - generated HTML
+    - notebook output
+    - archived reports
+  humanReviewRequiredFor:
+    - RAG promotion
+    - Memory activation
+    - Skill creation or update
+    - Project fact changes
+    - Report archive or deletion
+
+validation:
+  selfCheckScript: scripts/check_harness_docs.py
+  validationPlan: docs/verification/HarnessValidationPlan.md
+  interactionSimulation: docs/verification/HarnessInteractionSimulation.md
