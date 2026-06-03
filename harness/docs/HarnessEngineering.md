@@ -15,7 +15,7 @@ tags:
   - rag
   - templates
   - verification
-version: v1.2.3
+version: v1.2.4
 createdAt: 2026-05-28 00:00:00.000 +08:00
 updatedAt: 2026-06-03 00:00:00.000 +08:00
 status: draft
@@ -41,6 +41,7 @@ relatedDocuments:
   - "[[KnowledgeBaseConstructionWorkflow]]"
   - "[[ObsidianGitBoundaryPolicy]]"
   - "[[HarnessValidationPlan]]"
+  - "[[HarnessValidationCases]]"
   - docs/agent/AgentContextManifest.yaml
 outputTo:
   - HarnessVault
@@ -73,6 +74,8 @@ v1.2.1 补充 P15b 的 machine-readable Agent Context Manifest：它只保存稳
 v1.2.2 落地 P15c 的 RAG intake raw / enriched 空分区：`docs/rag/intake/raw/README.md` 与 `docs/rag/intake/enriched/README.md` 只保存候选分区规则，不保存真实知识正文。
 
 v1.2.3 落地 P15d 的复杂任务 Prompt 入口规则：`AGENTS.md`、[[PromptPolicy]] 与 [[TemplatesIndex]] 均指向 `templates/ComplexTaskPromptTemplate.md`，并明确 XML-like block 是 prompt 结构约定，不是强制 schema。
+
+v1.2.4 落地 P15e 的 Harness Validation Cases：[[HarnessValidationCases]] 只保存通用占位验证用例，不保存正式 P15 验证报告、临时输出、真实用户知识或具体项目事实。
 
 ## 2. Harness Engineering 定义
 
@@ -466,7 +469,8 @@ Harness 完成态验证应通过模拟任务检查：
 2. 是否能区分 RAG、Project Facts、Memory、Skill、Workflow、Report；
 3. 是否能执行 readiness、trace、verification、regression、promotion candidate；
 4. 是否能避免加载 archived reports、Obsidian workspace、plugin runtime code；
-5. 是否能按复杂任务 Prompt 模板完成闭环。
+5. 是否能按复杂任务 Prompt 模板完成闭环；
+6. 是否能按 [[HarnessValidationCases]] 逐项记录输入、读取路径、预期行为、禁止行为和通过标准。
 
 ## 17. Scripts and Self-check
 
@@ -577,10 +581,9 @@ templates/ComplexTaskPromptTemplate.md
 
 v1.2.0 之后的后续工作：
 
-1. 准备 P15 完成态验证用例；
-2. 使用 `docs/agent/AgentContextManifest.yaml` 维护 machine-readable 辅助入口；
-3. 执行 P15 Harness 完成态验证；
-4. 进入 P16 通用模板冻结与 v1.0.0 发布候选。
+1. 使用 `docs/agent/AgentContextManifest.yaml` 维护 machine-readable 辅助入口；
+2. 执行 P15 Harness 完成态验证；
+3. 进入 P16 通用模板冻结与 v1.0.0 发布候选。
 
 ## 23. 完成态判断
 
@@ -594,5 +597,5 @@ v1.2.0 之后的后续工作：
 6. 验证完整：readiness、trace、failure attribution、regression、acceptance 有规则；
 7. 报告完整：治理、索引、Memory、Skill、RAG、安全、归档报告有规则；
 8. 自检可运行：至少有 dry-run 脚本和报告模板；
-9. 模拟可通过：智能体能按 [[HarnessInteractionSimulation]] 完成任务闭环；
+9. 模拟可通过：智能体能按 [[HarnessInteractionSimulation]] 和 [[HarnessValidationCases]] 完成任务闭环；
 10. 不污染：通用仓库不包含真实用户知识和具体项目事实。

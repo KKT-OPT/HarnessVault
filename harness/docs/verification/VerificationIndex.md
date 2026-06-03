@@ -9,9 +9,9 @@ tags:
   - harness
   - verification
   - index
-version: v0.2.0
+version: v0.2.1
 createdAt: 2026-06-01 00:00:00.000 +08:00
-updatedAt: 2026-06-01 00:00:00.000 +08:00
+updatedAt: 2026-06-03 00:00:00.000 +08:00
 status: draft
 type: index
 purpose: 索引 HarnessVault 的 verification 文档，定义 readiness、acceptance、regression 和架构验证入口。
@@ -25,6 +25,7 @@ relatedDocuments:
   - "[[ReadinessCheckPolicy]]"
   - "[[RegressionPolicy]]"
   - "[[HarnessValidationPlan]]"
+  - "[[HarnessValidationCases]]"
   - "[[HarnessInteractionSimulation]]"
   - "[[ObservabilityIndex]]"
 outputTo:
@@ -48,6 +49,7 @@ HarnessVault 不运行测试、不执行 benchmark、不调用 runtime。Harness
 | [[ReadinessCheckPolicy]] | draft | 定义执行前任务、上下文、权限、分支、验收准备检查 |
 | [[RegressionPolicy]] | draft | 定义修复后复测、回归验证、失败闭环和验收收口规则 |
 | [[HarnessValidationPlan]] | draft | 定义通用 Harness 架构完成后的验证方法和完成判据 |
+| [[HarnessValidationCases]] | draft | 定义 P15 完成态验证可直接使用的通用 Harness 验证用例清单 |
 | [[HarnessInteractionSimulation]] | draft | 模拟智能体如何基于 HarnessVault 完成一次任务闭环 |
 
 ## 3. 验证闭环
@@ -97,5 +99,6 @@ entry discovery
 - [[ReadinessCheckPolicy]]
 - [[RegressionPolicy]]
 - [[HarnessValidationPlan]]
+- [[HarnessValidationCases]]
 - [[HarnessInteractionSimulation]]
 - [[ObservabilityIndex]]

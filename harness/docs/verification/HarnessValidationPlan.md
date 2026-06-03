@@ -9,9 +9,9 @@ tags:
   - harness
   - verification
   - validation
-version: v0.1.0
+version: v0.1.1
 createdAt: 2026-06-01 00:00:00.000 +08:00
-updatedAt: 2026-06-01 00:00:00.000 +08:00
+updatedAt: 2026-06-03 00:00:00.000 +08:00
 status: draft
 type: policy
 purpose: 定义通用 Harness 架构完成后的验证方法和完成判据。
@@ -22,6 +22,7 @@ prerequisites:
 relatedDocuments:
   - "[[VerificationIndex]]"
   - "[[HarnessEngineering]]"
+  - "[[HarnessValidationCases]]"
   - "[[HarnessInteractionSimulation]]"
   - "[[ReadinessCheckPolicy]]"
   - "[[RegressionPolicy]]"
@@ -67,6 +68,8 @@ reviewAfter: 2026-07-01 00:00:00.000 +08:00
 | Reports | 是否能输出报告而不是静默修改 |
 
 ## 4. 验证用例
+
+详细、可重复执行的 P15 验证用例清单见 [[HarnessValidationCases]]。本节保留验证类别摘要，正式 P15 报告应逐项引用 [[HarnessValidationCases]] 的输入、读取路径、预期行为、禁止行为和通过标准。
 
 ### 4.1 文档查找用例
 
@@ -130,6 +133,7 @@ Harness 验证通过，当：
 
 - [[VerificationIndex]]
 - [[HarnessEngineering]]
+- [[HarnessValidationCases]]
 - [[HarnessInteractionSimulation]]
 - [[ReadinessCheckPolicy]]
 - [[RegressionPolicy]]

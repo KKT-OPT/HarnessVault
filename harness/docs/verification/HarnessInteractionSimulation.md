@@ -9,9 +9,9 @@ tags:
   - harness
   - verification
   - simulation
-version: v0.1.0
+version: v0.1.1
 createdAt: 2026-06-01 00:00:00.000 +08:00
-updatedAt: 2026-06-01 00:00:00.000 +08:00
+updatedAt: 2026-06-03 00:00:00.000 +08:00
 status: draft
 type: template
 purpose: 模拟智能体如何基于 HarnessVault 入口、索引和治理规则完成一次任务闭环。
@@ -20,6 +20,7 @@ prerequisites:
   - docs/verification/HarnessValidationPlan.md
 relatedDocuments:
   - "[[HarnessValidationPlan]]"
+  - "[[HarnessValidationCases]]"
   - "[[INDEX]]"
   - "[[PLANS]]"
   - "[[RAGIndex]]"
@@ -143,3 +144,5 @@ docs/reports/README.md
 ## 11. 模拟结论
 
 如果智能体能按照本模拟完成读取、判断、计划、验收、trace、regression 和 candidate routing，则说明 HarnessVault 已具备作为通用 agent-facing 文档控制层的基本可用性。
+
+正式 P15 完成态验证应结合 [[HarnessValidationCases]] 逐项记录输入、读取路径、预期行为、禁止行为和通过标准。
